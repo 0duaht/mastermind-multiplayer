@@ -1,4 +1,4 @@
-require_relative 'helper'
+require 'timehelper'
 
 class Player
   attr_reader :name

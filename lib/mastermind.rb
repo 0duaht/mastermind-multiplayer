@@ -1,7 +1,7 @@
-#require 'ui'
-#require 'logic'
-#require 'timehelper'
-#require 'player'
+require 'ui'
+require 'logic'
+require 'timehelper'
+require 'player'
 require 'yaml'
 
 class MasterMind
