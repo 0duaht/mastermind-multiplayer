@@ -1,0 +1,76 @@
+--- !ruby/object:Player
+name: tboss
+sequence:
+- g
+- y
+- b
+- g
+time: 8
+guesses: 1
+--- !ruby/object:Player
+name: tbabab
+sequence:
+- g
+- g
+- g
+- b
+- b
+time: 4
+guesses: 1
+--- !ruby/object:Player
+name: gklsjf
+sequence:
+- o
+- b
+- o
+- g
+- y
+time: 3
+guesses: 1
+--- !ruby/object:Player
+name: tobiloba
+sequence:
+- y
+- r
+- g
+- b
+time: 3
+guesses: 1
+--- !ruby/object:Player
+name: yam
+sequence:
+- b
+- y
+- g
+- r
+time: 45
+guesses: 6
+--- !ruby/object:Player
+name: salkf
+sequence:
+- r
+- y
+- r
+- y
+time: 4
+guesses: 1
+--- !ruby/object:Player
+name: tobildoa
+sequence:
+- y
+- b
+- g
+- g
+time: 3
+guesses: 1
+--- !ruby/object:Player
+name: tobadf
+sequence:
+- b
+- g
+- v
+- g
+- o
+- v
+time: 6
+guesses: 1

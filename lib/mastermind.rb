@@ -1,18 +1,16 @@
-require_relative "version"
-
-require_relative 'ui'
-require_relative 'logic'
-require_relative 'helper'
-require_relative 'player'
+require 'ui'
+require 'logic'
+require 'helper'
+require 'player'
 require 'yaml'
 
 class MasterMind
   VERSION = 1.0
   extend Helper
   
-  def self.home_screen
+  def self.start
     puts UI::WELCOME_MESSAGE
-    print UI::OPTIONS_MESSAGE
+    print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
     
     user_choice
   end
@@ -107,13 +105,13 @@ class MasterMind
             name = get_name_store(sequence, guesses, time_elapsed)
             
             top_ten_list = YAML.load_stream(File.open(UI::DB_STORE)).sort{|player1, player2|
-              by_guess = player2.guesses <=> player1.guesses
+              by_guess = player1.guesses <=> player2.guesses
               by_guess == 0 ? player1.time <=> player2.time : by_guess
             }[0..10]  if File.file?(UI::DB_STORE)
             
             puts UI::CONGRATS_MESSAGE % [name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", time_convert(time_elapsed)] 
             puts UI::TOP_TEN
-            puts top_ten_list
+            top_ten_list.each_with_index{|player, index| puts "#{index+1}. " + player.to_s }
             print UI::OPTIONS_MESSAGE
             user_choice
             throw :complete
@@ -125,6 +123,3 @@ class MasterMind
     end
   end
 end
-
-MasterMind.home_screen
-

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/mastermind/mastermind'
+require 'mastermind'
 
-p MasterMind::VERSION
+MasterMind.start
