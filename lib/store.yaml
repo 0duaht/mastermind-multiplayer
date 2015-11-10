@@ -81,3 +81,12 @@ sequence:
 - r
 time: 3
 guesses: 1
+--- !ruby/object:Player
+name: asdf
+sequence:
+- y
+- r
+- b
+- b
+time: 4
+guesses: 1

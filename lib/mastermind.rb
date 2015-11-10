@@ -22,11 +22,11 @@ class MasterMind
       option_chosen = true                              # assume user selects valid option so as to quit loop
       
       input = gets.chomp.downcase
-      option_chosen = validate_input
+      option_chosen = validate_input(input)
     end
   end
   
-  def self.validate_input
+  def self.validate_input(input)
     case input
       when "p", "play" then play_game
       when "r", "read"
@@ -130,3 +130,5 @@ class MasterMind
     end
   end
 end
+
+MasterMind.start
