@@ -14,7 +14,7 @@ class UI
   \t\t\t\t\t(r)ed, (g)reen, (b)lue and (y)ellow.
   \t\t\t\t\tUse (q)uit at any time to end the game. \n\n\t\t\t\t\t\tWhat's your guess?" + INPUT_PROMPT
   
-  INVALID_MESSAGE = "\n\t\t\t\t\tEntry invalid! Please try again\n\n\t\t\t\t\t\t" + INPUT_PROMPT
+  INVALID_MESSAGE = "\n\t\t\t\t\tEntry invalid! Please try again" + INPUT_PROMPT
   
   INPUT_SHORT_MESSAGE = "\t\t\t\t\tInput too short. Please enter guess correctly" + INPUT_PROMPT
   
@@ -29,5 +29,7 @@ class UI
   END_MESSAGE = "\t\t\t\t\tDo you want to (p)lay again or (q)uit?"
   
   TRIES_MESSAGE = "\t\t\t\t\t\tYou've taken %s guess"  + INPUT_PROMPT
+  
+  LEVEL_MESSAGE = "\n\t\t\t\tDifficulty level: (b)eginner, (i)ntermediate, (a)dvanced" + INPUT_PROMPT
     
 end

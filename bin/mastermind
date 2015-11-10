@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/mastermind/mastermind'
+
+p MasterMind::VERSION
