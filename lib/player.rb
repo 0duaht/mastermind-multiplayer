@@ -5,7 +5,7 @@ class Player
   attr_reader :sequence
   attr_reader :time
   attr_reader :guesses
-  include Helper
+  include TimeHelper
   
   def initialize(name, sequence, time, guesses)
     @name = name; @sequence = sequence; @time = time; @guesses = guesses

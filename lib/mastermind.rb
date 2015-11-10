@@ -6,7 +6,7 @@ require 'yaml'
 
 class MasterMind
   VERSION = 1.0
-  extend Helper
+  extend TimeHelper
   
   def self.start
     puts UI::WELCOME_MESSAGE
@@ -22,18 +22,23 @@ class MasterMind
       option_chosen = true                              # assume user selects valid option so as to quit loop
       
       input = gets.chomp.downcase
-      case input
+      option_chosen = validate_input
+    end
+  end
+  
+  def self.validate_input
+    case input
       when "p", "play" then play_game
       when "r", "read"
         puts UI::HELP_MESSAGE
         print UI::OPTIONS_MESSAGE
-        option_chosen = false
+        return false
       when "q", "quit" then exit(0)
       else                                               # user selects an invalid option
         print UI::INVALID_MESSAGE
-        option_chosen = false
-      end  
+        return false
     end
+    return true
   end
   
   def self.ask_level
