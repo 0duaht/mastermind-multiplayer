@@ -74,3 +74,22 @@ sequence:
 - v
 time: 6
 guesses: 1
+--- !ruby/object:Player
+name: tob
+sequence:
+- y
+- b
+- g
+- r
+- y
+time: 7
+guesses: 1
+--- !ruby/object:Player
+name: jkj
+sequence:
+- b
+- b
+- b
+- g
+time: 40
+guesses: 4

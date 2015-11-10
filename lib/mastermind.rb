@@ -1,7 +1,7 @@
-require 'ui'
-require 'logic'
-require 'helper'
-require 'player'
+#require 'ui'
+#require 'logic'
+#require 'timehelper'
+#require 'player'
 require 'yaml'
 
 class MasterMind
@@ -117,7 +117,9 @@ class MasterMind
             throw :complete
           end
           
-          GameLogic.check_input(sequence, input, guesses)     
+          result = GameLogic.check_input(sequence, input)
+          puts UI::INFO_MESSAGE % [input.upcase, result[:correct_elements], result[:correct_position]]
+          print UI::GUESSES_MESSAGE % [guesses, guesses > 1 ? "guesses" : "guess"]     
         end
       end
     end

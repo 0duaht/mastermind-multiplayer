@@ -1,4 +1,4 @@
-module Helper
+module TimeHelper
   def time_convert(time_int)
     hours = time_int / 3600
     minutes = (time_int % 3600) / 60

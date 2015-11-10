@@ -16,7 +16,7 @@ class GameLogic
     (color_array * (rand() * 1000).to_i).shuffle[0...color_array.length]                  # generate random combination of r/g/b/y
   end
   
-  def self.check_input(sequence, input, guesses)
+  def self.check_input(sequence, input)
     sequence_copy = sequence[0..-1]; split_input = input.split(''); correct_elements = 0; correct_position = 0 
     
     split_input.each_with_index{ |element, index| 
@@ -27,8 +27,7 @@ class GameLogic
       end 
     } 
     
-    puts UI::INFO_MESSAGE % [input.upcase, correct_elements, correct_position]
-    print UI::GUESSES_MESSAGE % [guesses, guesses > 1 ? "guesses" : "guess"]
+    return {correct_elements: correct_elements, correct_position: correct_position}
   end
   
 end
