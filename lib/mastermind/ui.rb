@@ -4,7 +4,7 @@ class UI
   INPUT_PROMPT = "\n\n\t\t\t\t\t\t\t>>  "
   
   OPTIONS_MESSAGE = "\t\t\t\t\t\tWould you like to \n
-    \t\t\t\t\t\t (p)lay ?\n\t\t\t\t\t\(r)ead the instructions ?\n\t\t\t\t\t\tor (quit) ?\n\n\t\t\t\t\t\t>>  "
+    \t\t\t\t\t\t   (p)lay ?\n\t\t\t\t\t\(r)ead the instructions ?\n\t\t\t\t\t\tor (quit) ?\n\n\t\t\t\t\t\t>>  "
     
   HELP_MESSAGE = "\n\t\t\tOnce game starts, you'll be presented with a range of blank dots, representing a particular code
     \t\tEvery code is a four digit word made up by the letters [r, g, b, y]. You have twelve guesses per game.
@@ -30,7 +30,7 @@ class UI
   
   SEQUENCE_MESSAGE = "\t\t\t\t\t\tThe sequence is %s" + INPUT_PROMPT
   
-  CONGRATS_MESSAGE = "\t\t\tCongratulations! You guessed the sequence '%s' in %s "
+  CONGRATS_MESSAGE = "\t\t\t%s, You guessed the sequence '%s' in %s %s over %s"
   
   INFO_MESSAGE = "\t\t\t'%s' has %s of the correct elements with %s in the correct positions."
   
@@ -39,4 +39,10 @@ class UI
   TRIES_MESSAGE = "\t\t\t\t\t\tYou've taken %s guess"  + INPUT_PROMPT
   
   LEVEL_MESSAGE = "\n\t\t\t\tDifficulty level: (b)eginner, (i)ntermediate, (a)dvanced" + INPUT_PROMPT
+  
+  NAME_MESSAGE = "\n\t\t\tCongratulations! You've guessed the sequence! What's your name?" + INPUT_PROMPT
+  
+  DB_STORE = 'store.yaml'
+  
+  TOP_TEN = '=== TOP TEN ==='
 end

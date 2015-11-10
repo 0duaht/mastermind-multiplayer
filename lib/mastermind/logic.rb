@@ -1,5 +1,6 @@
 class GameLogic
   attr_reader :level
+  attr_reader :length
   attr_reader :color_array
   
   BEGINNER, INTERMEDIATE, ADVANCED = 0, 1, 2
@@ -8,6 +9,7 @@ class GameLogic
   def initialize(level)
     @level = level
     @color_array = COLORS[level]
+    @length = color_array.length
   end
   
   def generate_sequence

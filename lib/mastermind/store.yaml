@@ -1,0 +1,83 @@
+--- !ruby/object:Player
+name: tobiloba
+sequence:
+- b
+- g
+- r
+- y
+time: 5
+guesses: 1
+--- !ruby/object:Player
+name: tben
+sequence:
+- r
+- r
+- y
+- y
+- g
+time: 13
+guesses: 1
+--- !ruby/object:Player
+name: tobi2
+sequence:
+- y
+- b
+- r
+- g
+- y
+time: 7
+guesses: 1
+--- !ruby/object:Player
+name: tobi3
+sequence:
+- y
+- g
+- g
+- y
+time: 3
+guesses: 1
+--- !ruby/object:Player
+name: tobi4
+sequence:
+- r
+- y
+- y
+- y
+time: 5
+guesses: 1
+--- !ruby/object:Player
+name: tbaba
+sequence:
+- r
+- r
+- g
+- y
+time: 3
+guesses: 1
+--- !ruby/object:Player
+name: tboss
+sequence:
+- b
+- y
+- g
+- b
+time: 15
+guesses: 1
+--- !ruby/object:Player
+name: madara
+sequence:
+- r
+- r
+- b
+- y
+time: 27
+guesses: 1
+--- !ruby/object:Player
+name: 7jsdf
+sequence:
+- b
+- g
+- b
+- r
+time: 3
+guesses: 1
