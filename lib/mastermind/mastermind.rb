@@ -1,4 +1,4 @@
-require "tobi/mastermind/version"
+require_relative "version"
 
 require_relative 'ui'
 require_relative 'logic'
@@ -12,7 +12,7 @@ class MasterMind
     user_choice
   end
   
-  def user_choice
+  def self.user_choice
     option_chosen = false
     
     while !option_chosen
@@ -33,8 +33,28 @@ class MasterMind
     end
   end
   
-  def play_game
-    sequence = GameLogic.generateSequence
+  def self.ask_level
+    print UI::LEVEL_MESSAGE
+    option_chosen = false
+    
+    while !option_chosen
+      option_chosen = true                              # assume user selects valid option so as to quit loop
+      
+      input = gets.chomp.downcase
+      case input
+      when "b", "beginner" then return 0
+      when "i", "intermediate" then return 1
+      when "a", "advanced" then return 2
+      else                                               # user selects an invalid option
+        print UI::INVALID_MESSAGE
+        option_chosen = false
+      end  
+    end
+  end
+  
+  def self.play_game
+    game_logic = GameLogic.new(ask_level)
+    sequence = game_logicgenerate_sequence
     print UI::GENERATE_MESSAGE
     tries = 0
     
@@ -58,7 +78,7 @@ class MasterMind
           tries += 1
           if input == sequence.join
             puts UI::CONGRATS_MESSAGE % [sequence.join.upcase, tries] +  (tries > 1 ? "guesses" : "guess")
-            #puts UI::END_MESSAGE 
+            print UI::OPTIONS_MESSAGE
             user_choice
             throw :complete
           end

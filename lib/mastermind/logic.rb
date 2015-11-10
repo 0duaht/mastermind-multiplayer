@@ -1,13 +1,16 @@
 class GameLogic
-  SEQUENCE = ['r', 'g', 'b', 'y', 'o']
+  attr_reader :length
+  attr_reader :color_array
+  
+  BEGINNER, INTERMEDIATE, ADVANCED = 0, 1, 2
+  COLORS = [['r', 'g', 'b', 'y'], ['r', 'g', 'b', 'y', 'o'], ['r', 'g', 'b', 'y', 'o', 'v']]
   
   def initialize(level)
-    
+    @color_array = COLORS[level]
   end
   
-  def self.generateSequence
-    start = rand(996)
-    (SEQUENCE * (rand() * 1000).to_i).shuffle[0...6]                  # generate random combination of r/g/b/y
+  def generate_sequence
+    (color_array * (rand() * 1000).to_i).shuffle[0...color_array.length]                  # generate random combination of r/g/b/y
   end
   
   def self.check_input(sequence, input, tries)
