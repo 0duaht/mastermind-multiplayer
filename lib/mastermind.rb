@@ -130,5 +130,3 @@ class MasterMind
     end
   end
 end
-
-MasterMind.start
