@@ -75,7 +75,41 @@ class MasterMind
     File.open(UI::DB_STORE, 'a'){|file| file.write(YAML.dump(current_player))} 
     return name
   end
+   
+  def self.print_history(history)
+    if history.empty?
+      print "No history yet. Enter a guess"  + UI::INPUT_PROMPT
+    else
+      puts ""
+      puts history
+      print UI::INPUT_PROMPT 
+    end
+  end 
+  
+  def self.right_guess(start_time, sequence, guesses)
+    time_elapsed = (Time.now - start_time).to_i
+    name = get_name_store(sequence, guesses, time_elapsed)
     
+    top_ten_list = YAML.load_stream(File.open(UI::DB_STORE)).sort{|player1, player2|
+      by_guess = player1.guesses <=> player2.guesses
+      by_guess == 0 ? player1.time <=> player2.time : by_guess
+    }[0...10]  if File.file?(UI::DB_STORE)
+    
+    puts UI::CONGRATS_MESSAGE % [name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", time_convert(time_elapsed)] 
+    puts UI::TOP_TEN
+    top_ten_list.each_with_index{|player, index| puts "#{index+1}. " + player.to_s }
+    print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
+    user_choice
+  end
+  
+  def self.wrong_guess(sequence, guesses, input, history)
+    result = GameLogic.check_input(sequence, input)
+    history << GamePlay.new(input, result[:correct_elements], result[:correct_position])
+    
+    puts UI::INFO_MESSAGE % [input.upcase, result[:correct_elements], result[:correct_position]]
+    print UI::GUESSES_MESSAGE % [guesses, guesses > 1 ? "guesses" : "guess"]
+  end
+  
   def self.play_game
     game_logic = GameLogic.new(ask_level)
     sequence = game_logic.generate_sequence
@@ -100,42 +134,20 @@ class MasterMind
         
         case input
         when "h", "history"
-          if history.empty?
-            puts "No history yet. Enter a guess"  + UI::INPUT_PROMPT
-            next
-          else
-            puts history 
-          end
+          print_history(history)
+          next
         when "q", "quit" then exit(0)
         when "c", "cheat" then print UI::SEQUENCE_MESSAGE % sequence.join.upcase
         else
           guesses += 1
           if input == sequence.join
-            time_elapsed = (Time.now - start_time).to_i
-            name = get_name_store(sequence, guesses, time_elapsed)
-            
-            top_ten_list = YAML.load_stream(File.open(UI::DB_STORE)).sort{|player1, player2|
-              by_guess = player1.guesses <=> player2.guesses
-              by_guess == 0 ? player1.time <=> player2.time : by_guess
-            }[0...10]  if File.file?(UI::DB_STORE)
-            
-            puts UI::CONGRATS_MESSAGE % [name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", time_convert(time_elapsed)] 
-            puts UI::TOP_TEN
-            top_ten_list.each_with_index{|player, index| puts "#{index+1}. " + player.to_s }
-            print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
-            user_choice
+            right_guess(start_time, sequence, guesses)
             throw :complete
           end
           
-          result = GameLogic.check_input(sequence, input)
-          history << GamePlay.new(input, result[:correct_elements], result[:correct_position])
-          
-          puts UI::INFO_MESSAGE % [input.upcase, result[:correct_elements], result[:correct_position]]
-          print UI::GUESSES_MESSAGE % [guesses, guesses > 1 ? "guesses" : "guess"]     
+          wrong_guess(sequence, guesses, input, history)     
         end
       end
     end
   end
 end
-
-MasterMind.start
