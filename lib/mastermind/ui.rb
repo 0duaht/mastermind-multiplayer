@@ -9,9 +9,17 @@ class UI
   HELP_MESSAGE = "\n\t\t\tOnce game starts, you'll be presented with a range of blank dots, representing a particular code
     \t\tEvery code is a four digit word made up by the letters [r, g, b, y]. You have twelve guesses per game.
     \t\t\t\tOn every guess, you are presented with a message identifying the number of elements you got correctly, and in what positions.\n\n"
+  
+  BEGINNER_COLOR = "(r)ed, (g)reen, (b)lue and (y)ellow"
+  
+  INTERMEDIATE_COLOR = "(r)ed, (g)reen, (b)lue, (y)ellow, and (o)range"
+  
+  ADVANCED_COLOR = "(r)ed, (g)reen, (b)lue, (y)ellow, (o)range and (v)iolet"
  
+  COLOR_STRINGS = [BEGINNER_COLOR, INTERMEDIATE_COLOR, ADVANCED_COLOR]
+  
   GENERATE_MESSAGE = "\n\t\t\tI have generated a beginner sequence with four elements made up of: 
-  \t\t\t\t\t(r)ed, (g)reen, (b)lue and (y)ellow.
+  \t\t\t\t\t %s
   \t\t\t\t\tUse (q)uit at any time to end the game. \n\n\t\t\t\t\t\tWhat's your guess?" + INPUT_PROMPT
   
   INVALID_MESSAGE = "\n\t\t\t\t\tEntry invalid! Please try again" + INPUT_PROMPT
@@ -31,5 +39,4 @@ class UI
   TRIES_MESSAGE = "\t\t\t\t\t\tYou've taken %s guess"  + INPUT_PROMPT
   
   LEVEL_MESSAGE = "\n\t\t\t\tDifficulty level: (b)eginner, (i)ntermediate, (a)dvanced" + INPUT_PROMPT
-    
 end

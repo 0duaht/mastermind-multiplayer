@@ -1,11 +1,12 @@
 class GameLogic
-  attr_reader :length
+  attr_reader :level
   attr_reader :color_array
   
   BEGINNER, INTERMEDIATE, ADVANCED = 0, 1, 2
   COLORS = [['r', 'g', 'b', 'y'], ['r', 'g', 'b', 'y', 'o'], ['r', 'g', 'b', 'y', 'o', 'v']]
   
   def initialize(level)
+    @level = level
     @color_array = COLORS[level]
   end
   

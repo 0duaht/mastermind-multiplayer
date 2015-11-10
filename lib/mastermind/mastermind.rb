@@ -54,8 +54,8 @@ class MasterMind
   
   def self.play_game
     game_logic = GameLogic.new(ask_level)
-    sequence = game_logicgenerate_sequence
-    print UI::GENERATE_MESSAGE
+    sequence = game_logic.generate_sequence
+    print UI::GENERATE_MESSAGE % UI::COLOR_STRINGS[game_logic.level]
     tries = 0
     
     catch :complete do
