@@ -93,3 +93,31 @@ sequence:
 - g
 time: 40
 guesses: 4
+--- !ruby/object:Player
+name: baddosneh
+sequence:
+- y
+- g
+- b
+- r
+- g
+time: 4
+guesses: 1
+--- !ruby/object:Player
+name: dsalkfjasdf
+sequence:
+- r
+- g
+- r
+- b
+time: 4
+guesses: 1
+--- !ruby/object:Player
+name: lsakdfjasdlj
+sequence:
+- r
+- r
+- y
+- y
+time: 4
+guesses: 1
