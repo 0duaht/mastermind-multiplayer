@@ -5,9 +5,13 @@ class UI
   
   OPTIONS_MESSAGE = "\nWould you like to (p)lay, (r)ead the instructions or (quit) ?"
     
-  HELP_MESSAGE = "\nOnce game starts, you'll be presented with a range of blank dots, representing a particular code
-Every code is a four digit word made up by the letters [r, g, b, y]. You have twelve guesses per game.
-On every guess, you are presented with a message identifying the number of elements you got correctly, and in what positions.\n\n"
+  HELP_MESSAGE = "\nOnce game starts, a random code is generated and you're asked to guess what the code is.
+Every code is a four/five/six digit word made up by the letters [r, g, b, y]/[r, g, b, y, o]/[r, g, b, y, o, v] 
+depending on difficulty levels beginner/intermediate/advanced levels. You have twelve guesses per game.
+On every guess, you are presented with a message identifying the number of elements you got correctly, and in what positions.
+To view entry history, enter h or history at any time
+To view sequence generated, enter c or cheat at any time
+To quit the game at any point enter q or quit\n\n"
   
   BEGINNER_COLOR = "(r)ed, (g)reen, (b)lue and (y)ellow"
   
@@ -43,4 +47,6 @@ up of: %s\nUse (q)uit at any time to end the game. \nWhat's your guess?" + INPUT
   DB_STORE = 'store.yaml'
   
   TOP_TEN = '=== TOP TEN ==='
+  
+  OVERWRITE_MESSAGE = 'Data file already exists. Do you want to add your score to top scores? (y)es or (n)o..'
 end

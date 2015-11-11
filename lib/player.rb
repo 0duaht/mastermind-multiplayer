@@ -12,6 +12,6 @@ class Player
   end
   
   def to_s
-    "%s solved '%s' in %s guesses over %s" % [name, sequence.join.upcase, guesses, time_convert(time)]  
+    "%s solved '%s' in %s %s over %s" % [name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", time_convert(time)]  
   end
 end

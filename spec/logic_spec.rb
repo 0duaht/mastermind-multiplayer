@@ -29,7 +29,6 @@ describe GameLogic do
     end
   end
   
-  
   describe "#check_input" do
     it "calculates number of correct elements and correct positions" do
       expect(GameLogic.check_input(['r', 'r', 'y', 'b', 'v'], 'rvoby')).to eq({correct_elements: 4, correct_position: 2}) 
