@@ -121,3 +121,48 @@ sequence:
 - y
 time: 4
 guesses: 1
+--- !ruby/object:Player
+name: MasterMind
+sequence:
+- y
+- y
+- r
+- y
+time: 3
+guesses: 1
+--- !ruby/object:Player
+name: tobi
+sequence:
+- r
+- g
+- b
+- r
+time: 4
+guesses: 1
+--- !ruby/object:Player
+name: tobiloga
+sequence:
+- g
+- b
+- y
+- b
+time: 2
+guesses: 1
+--- !ruby/object:Player
+name: Saldkjfas
+sequence:
+- y
+- r
+- g
+- g
+time: 3
+guesses: 1
+--- !ruby/object:Player
+name: Aslkdf
+sequence:
+- r
+- y
+- g
+- y
+time: 2
+guesses: 1
