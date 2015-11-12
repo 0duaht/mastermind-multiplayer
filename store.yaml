@@ -184,3 +184,12 @@ sequence:
 - g
 time: 64
 guesses: 2
+--- !ruby/object:Player
+name: Tobi
+sequence:
+- b
+- b
+- b
+- b
+time: 11
+guesses: 2

@@ -6,7 +6,7 @@ require 'gameplay'
 
 class SinglePlayer
   
-  extend TimeHelper
+  include TimeHelper
   
   attr_reader :start_time
   attr_reader :history
