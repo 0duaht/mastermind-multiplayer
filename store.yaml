@@ -1,0 +1,9 @@
+--- !ruby/object:Player
+name: Tobi
+sequence:
+- r
+- r
+- g
+- b
+time: 4
+guesses: 1
