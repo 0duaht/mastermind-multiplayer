@@ -5,11 +5,13 @@ require 'yaml'
 require 'gameplay'
 
 class SinglePlayer
+  
+  extend TimeHelper
+  
   attr_reader :start_time
   attr_reader :history
   attr_reader :sequence
   attr_reader :game_logic
-  extend TimeHelper
   
   ALLOWED = ['c', 'h', 'q', 'cheat', 'history', 'quit']
   END_GUESS = 13
@@ -35,11 +37,11 @@ class SinglePlayer
   
   def invalid_length(input)
     if input.length < game_logic.length && !(ALLOWED.include?(input))
-      puts UI::INPUT_SHORT_MESSAGE
+      print UI::INPUT_SHORT_MESSAGE
       return true
       
     elsif input.length > game_logic.length && !(ALLOWED.include?(input)) 
-      puts UI::INPUT_LONG_MESSAGE
+      print UI::INPUT_LONG_MESSAGE
       return true
     end
     
