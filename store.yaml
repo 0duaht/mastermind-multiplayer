@@ -256,3 +256,12 @@ sequence:
 - b
 time: 8
 guesses: 3
+--- !ruby/object:Player
+name: Las
+sequence:
+- b
+- b
+- g
+- b
+time: 4
+guesses: 1
