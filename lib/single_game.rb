@@ -23,19 +23,23 @@ class SinglePlayer
     @game_logic = game_logic
   end
   
+  # generate game sequence and start game play
   def start_game
     print UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
     guesses = 0
     
+    # allow the user guess up to twelve times before ending game
     while guesses < 12
       input = gets.chomp.downcase
       next if invalid_length(input)
       next if treat_option(input)
       guesses = treat_guess(input, guesses)
     end
+    puts "Sorry, You Lost." if guesses == 12    
   end
   
-  def invalid_length(input)
+  # check if user's guess is longer or fewer than the required length
+  def invalid_length(input)   
     if input.length < game_logic.length && !(ALLOWED.include?(input))
       print UI::INPUT_SHORT_MESSAGE
       return true
@@ -48,6 +52,7 @@ class SinglePlayer
     return false
   end
   
+  # check if user selects an option
   def treat_option(input)
     case input
     when "h", "history" then print_history(history)
@@ -58,13 +63,14 @@ class SinglePlayer
     return true
   end
   
+  # treat guesses entered by user
   def treat_guess(input, guesses)
     guesses += 1
-    if input == sequence.join
+    if input == sequence.join                         # right guess entered
       right_guess(start_time, sequence, guesses)
-      guesses = END_GUESS
+      guesses = END_GUESS                             # sentinel value to end guess loop
     else
-      wrong_guess(sequence, guesses, input, history)
+      wrong_guess(sequence, guesses, input, history)  # wrong guess entered
     end
     
     return guesses
@@ -72,30 +78,34 @@ class SinglePlayer
   
   def print_top_ten(current_player)
     top_ten_list = YAML.load_stream(File.open(UI::DB_STORE)).sort{|player1, player2|  # load player objects from db and sort by guesses/time
-      by_guess = player1.guesses <=> player2.guesses
-      by_guess == 0 ? player1.time <=> player2.time : by_guess
-    }[0...10]  if File.file?(UI::DB_STORE) 
+      by_guess = player1.guesses <=> player2.guesses                                  # first sort by guesses
+      by_guess == 0 ? player1.time <=> player2.time : by_guess                        # then sort by time
+    }[0...10]  if File.file?(UI::DB_STORE)                                            # pick out top ten
     
-    puts average_string(top_ten_list, current_player)
-    puts UI::TOP_TEN
+    puts average_string(top_ten_list, current_player)                                 # print out user's performance compared to average
+    
+    # print out top ten results
+    puts UI::TOP_TEN                                                                  
     top_ten_list.each_with_index{|player, index| puts "#{index+1}. " + player.to_s }
   end
   
   def right_guess(start_time, sequence, guesses)
-    time_elapsed = (Time.now - start_time).to_i
-    current_player = store_game(sequence, guesses, time_elapsed)
+    time_elapsed = (Time.now - start_time).to_i                                       # time used by user in seconds
+    current_player = store_game(sequence, guesses, time_elapsed)                      # store user data to top-scores file
     
     puts UI::CONGRATS_MESSAGE % [current_player.name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", 
       time_convert(time_elapsed) << '.']
     print_top_ten(current_player)
   end
   
-  def average_string(top_ten_list, current_player)
+  def average_string(top_ten_list, current_player)                                    # generates user's performance compared to average
+    # time difference obtained
     time_diff = (top_ten_list.inject(0){ |sum, player| sum += player.time } / top_ten_list.length) - current_player.time
+    # guess difference obtained
     guess_diff = (top_ten_list.inject(0){ |sum, player| sum += player.guesses } / top_ten_list.length) - current_player.guesses
     
-    "That's %s %s and %s %s %s the average" % [time_convert(time_diff.abs), time_diff < 0 ? "slower" : "faster",
-      guess_diff.abs, guess_diff == 1 ? "guess" : "guesses", guess_diff < 0 ? "fewer" : "more"]
+    "That's %s %s and %s %s %s the average\n" % [time_convert(time_diff.abs), time_diff < 0 ? "slower" : "faster",
+      guess_diff.abs, guess_diff.abs == 1 ? "guess" : "guesses", guess_diff < 0 ? "fewer" : "more"]
   end
   
   def wrong_guess(sequence, guesses, input, history)
@@ -117,7 +127,7 @@ class SinglePlayer
     current_player
   end
   
-  def user_permits_store
+  def user_permits_store                    # confirm from user to add record to top-scores if file exists
     print UI::OVERWRITE_MESSAGE
     print UI::INPUT_PROMPT
     option_chosen = false

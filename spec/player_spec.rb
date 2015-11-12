@@ -9,6 +9,6 @@ describe Player do
   it { is_expected.to respond_to(:time) }
   it { is_expected.to respond_to(:guesses) }
   it "prints out appropriately" do
-     expect(subject.to_s).to eql("Jane Doe solved 'RGBR' in 5 guesses over 2 minutes, 8 seconds.")
+     expect(subject.to_s).to eql("Jane Doe solved 'RGBR' in 5 guesses over 2 minutes, 8 seconds")
   end
 end

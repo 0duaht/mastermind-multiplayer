@@ -12,6 +12,7 @@ describe GameLogic do
       it {expect(subject[random]).to respond_to(:level)}
       it {expect(subject[random]).to respond_to(:length)}
       it {expect(subject[random]).to respond_to(:color_array)}
+      it {expect(subject[random]).to respond_to(:sequence_type)}
     end
   
     context "return right number of characters for different levels" do
