@@ -211,3 +211,12 @@ sequence:
 - g
 time: 3
 guesses: 1
+--- !ruby/object:Player
+name: Alsdf
+sequence:
+- r
+- g
+- r
+- b
+time: 3
+guesses: 1

@@ -63,9 +63,10 @@ class SinglePlayer
     if input == sequence.join
       right_guess(start_time, sequence, guesses)
       guesses = END_GUESS
+    else
+      wrong_guess(sequence, guesses, input, history)
     end
     
-    wrong_guess(sequence, guesses, input, history)
     return guesses
   end
   
