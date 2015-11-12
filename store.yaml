@@ -322,3 +322,12 @@ sequence:
 - b
 time: 15
 guesses: 2
+--- !ruby/object:Player
+name: Yeet
+sequence:
+- b
+- y
+- g
+- r
+time: 6
+guesses: 2
