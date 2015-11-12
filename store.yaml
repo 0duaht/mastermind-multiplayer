@@ -202,3 +202,12 @@ sequence:
 - b
 time: 10
 guesses: 4
+--- !ruby/object:Player
+name: Asfd
+sequence:
+- g
+- g
+- b
+- g
+time: 3
+guesses: 1
