@@ -1,6 +1,7 @@
 require 'ui'
 require 'logic'
 require 'single_game'
+require 'multi_game'
 
 module GameHelper
   def user_choice
@@ -37,7 +38,7 @@ module GameHelper
   end
   
   def ask_mode(sequence, game_logic)
-    puts "\nPlease choose mode >>> (s)ingle or (m)ulti player mode?"
+    puts UI::MODE_SELECT
     option_chosen = false
     
     while !option_chosen

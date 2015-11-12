@@ -349,3 +349,12 @@ sequence:
 - b
 time: 3
 guesses: 1
+--- !ruby/object:Player
+name: Uio
+sequence:
+- r
+- y
+- y
+- g
+time: 6
+guesses: 1

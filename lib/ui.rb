@@ -53,6 +53,8 @@ up of: %s\nUse (q)uit at any time to end the game. \nWhat's your guess?"
   
   OVERWRITE_MESSAGE = 'Data file already exists. Do you want to add your score to top scores? (y)es or (n)o..'
   
+  MODE_SELECT = "\nPlease choose mode >>> (s)ingle or (m)ulti player mode?" + INPUT_PROMPT
+  
   MULTI_START_MESSAGE = "Welcome to the MultiPlayer Challenge. How many users will be playing today?" + INPUT_PROMPT
   
   PLAYER_MESSAGE = "Player %s's turn" + INPUT_PROMPT
