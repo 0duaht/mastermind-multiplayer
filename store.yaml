@@ -331,3 +331,21 @@ sequence:
 - r
 time: 6
 guesses: 2
+--- !ruby/object:Player
+name: Kkii
+sequence:
+- y
+- y
+- g
+- g
+time: 7
+guesses: 1
+--- !ruby/object:Player
+name: Iop
+sequence:
+- r
+- r
+- y
+- b
+time: 3
+guesses: 1

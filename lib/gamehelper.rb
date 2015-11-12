@@ -30,22 +30,21 @@ module GameHelper
   
   def play_game
     game_logic = GameLogic.new(ask_level); sequence = game_logic.generate_sequence
-    ask_mode
-    SinglePlayer.new(sequence, game_logic).start_game
+    ask_mode(sequence, game_logic)
     puts ""
     print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
     user_choice
   end
   
-  def ask_mode
-    puts "Please choose mode >>> (s)ingle or (m)ulti player mode?"
+  def ask_mode(sequence, game_logic)
+    puts "\nPlease choose mode >>> (s)ingle or (m)ulti player mode?"
     option_chosen = false
     
     while !option_chosen
       option_chosen = true                              # assume user selects valid option so as to quit loop
       
       input = gets.chomp.downcase
-      case inputSinglePlayer.new(sequence, game_logic).start_game
+      case input
       when "s", "single" then SinglePlayer.new(sequence, game_logic).start_game
       when "m", "multi" then MultiPlayer.new(sequence, game_logic).start_game
       else 
