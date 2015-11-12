@@ -238,3 +238,12 @@ sequence:
 - g
 time: 4
 guesses: 1
+--- !ruby/object:Player
+name: Ljkjhjk
+sequence:
+- r
+- b
+- b
+- y
+time: 14
+guesses: 3
