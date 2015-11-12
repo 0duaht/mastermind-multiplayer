@@ -4,7 +4,7 @@ require 'timehelper'
 require 'player'
 require 'yaml'
 require 'gameplay'
-require 'single_player'
+require 'single_game'
 
 module GameHelper
   extend TimeHelper
