@@ -33,12 +33,12 @@ describe "Single Player" do
   describe "SinglePlayer#treat_option" do
     context "able to detect when input value is a game option" do
       it "detects when user tries a valid option" do
-        expect(subject.treat_option('h')).to eql(true)
-        expect(subject.treat_option('cheat')).to eql(true)
+        expect(subject.treat_option('h', [])).to eql(true)
+        expect(subject.treat_option('cheat', [])).to eql(true)
       end
       
       it "detects when user tries an invalid option" do
-        expect(subject.treat_option('hack')).to eql(false)
+        expect(subject.treat_option('hack', [])).to eql(false)
       end
     end
   end
