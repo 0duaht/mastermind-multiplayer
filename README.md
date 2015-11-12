@@ -6,9 +6,9 @@ An implementation of the MasterMind game. See http://https://en.wikipedia.org/wi
 
 Download files as zip here - https://github.com/andela-toduah/tobi-mastermind/archive/master.zip
 Then unzip all files to same directory.
-Once unzipped, change directory into the tobi-mastermind folder
+Once unzipped, change directory into the tobi-mastermind-master folder
 
-    $ cd tobi-mastermind
+    $ cd tobi-mastermind-master
 
 Then run 
 
