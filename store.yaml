@@ -304,3 +304,12 @@ sequence:
 - b
 time: 4
 guesses: 1
+--- !ruby/object:Player
+name: Saf
+sequence:
+- y
+- g
+- y
+- b
+time: 2
+guesses: 1

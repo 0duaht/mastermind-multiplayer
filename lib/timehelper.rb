@@ -15,8 +15,10 @@ module TimeHelper
       time_string << ', ' if seconds > 0
     end
      
-    if seconds > 0
+    if seconds > 1
       time_string << (seconds.to_s + ' seconds')
+    elsif seconds == 1
+      time_string << (seconds.to_s + ' second')
     end
     
   end
