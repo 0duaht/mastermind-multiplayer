@@ -36,10 +36,10 @@ class MultiPlayer < SinglePlayer
           end
           puts ""
         end
-        total_guess += 1
+        total_guesses += 1
       end
     end
-    puts "Sorry, You all Lost." if total_guesses == UI::GUESS_MAX * number
+    puts "Sorry, You all Lost.The sequence is %s" % if total_guesses == UI::GUESS_MAX * number
   end
   
   def num_of_players
