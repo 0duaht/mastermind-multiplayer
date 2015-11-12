@@ -19,6 +19,5 @@ module TimeHelper
       time_string << (seconds.to_s + ' seconds')
     end
     
-    time_string << '.'
   end
 end

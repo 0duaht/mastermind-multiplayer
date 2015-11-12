@@ -247,3 +247,12 @@ sequence:
 - y
 time: 14
 guesses: 3
+--- !ruby/object:Player
+name: Asdfaw
+sequence:
+- y
+- b
+- b
+- b
+time: 8
+guesses: 3

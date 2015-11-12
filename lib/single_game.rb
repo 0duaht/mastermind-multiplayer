@@ -85,13 +85,14 @@ class SinglePlayer
     time_elapsed = (Time.now - start_time).to_i
     current_player = store_game(sequence, guesses, time_elapsed)
     
-    puts UI::CONGRATS_MESSAGE % [current_player.name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", time_convert(time_elapsed)]
+    puts UI::CONGRATS_MESSAGE % [current_player.name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", 
+      time_convert(time_elapsed) << '.']
     print_top_ten(current_player)
   end
   
   def average_string(top_ten_list, current_player)
-    time_diff = current_player.time - (top_ten_list.inject(0){ |sum, player| sum += player.time } / top_ten_list.length)
-    guess_diff = current_player.guesses - (top_ten_list.inject(0){ |sum, player| sum += player.guesses } / top_ten_list.length)
+    time_diff = (top_ten_list.inject(0){ |sum, player| sum += player.time } / top_ten_list.length) - current_player.time
+    guess_diff = (top_ten_list.inject(0){ |sum, player| sum += player.guesses } / top_ten_list.length) - current_player.guesses
     
     "That's %s %s and %s %s %s the average" % [time_convert(time_diff.abs), time_diff < 0 ? "slower" : "faster",
       guess_diff.abs, guess_diff == 1 ? "guess" : "guesses", guess_diff < 0 ? "slower" : "faster"]
