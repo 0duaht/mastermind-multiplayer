@@ -27,11 +27,11 @@ class SinglePlayer
   end
   
   def check_length(input)
-    if input.length < game_logic.length && !(allowed.include?(input))
+    if input.length < game_logic.length && !(ALLOWED.include?(input))
       puts UI::INPUT_SHORT_MESSAGE
       return false
       
-    elsif input.length > game_logic.length && !(allowed.include?(input)) 
+    elsif input.length > game_logic.length && !(ALLOWED.include?(input)) 
       puts UI::INPUT_LONG_MESSAGE
       return false
     end
