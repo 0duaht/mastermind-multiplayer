@@ -27,6 +27,7 @@ class SinglePlayer
   # generate game sequence and start game play
   def start_game
     print UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
+    print INPUT_PROMPT
     guesses = 0
     
     # allow the user guess up to twelve times before ending game

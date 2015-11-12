@@ -12,10 +12,10 @@ class MultiPlayer < SinglePlayer
     history_hash = {}
     (1..number).each {|x| history_hash[x] = [] }
     
-    multi_start_game    
+    multi_start_game(number)    
   end  
   
-  def multi_start_game
+  def multi_start_game(number)
     # allow the user guess up to twelve times before ending game
     guesses = 0
     while guesses < (UI::GUESS_MAX * number)
