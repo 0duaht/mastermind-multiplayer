@@ -1,6 +1,7 @@
 require 'single_game'
 require 'logic'
 require 'ui'
+require 'io/console'
 
 class MultiPlayer < SinglePlayer
   
