@@ -1,6 +1,5 @@
 class SinglePlayer
   attr_reader :start_time
-  attr_reader :guesses
   attr_reader :history
   attr_reader :sequence
   attr_reader :game_logic
@@ -10,13 +9,15 @@ class SinglePlayer
   
   def initialize(sequence, game_logic)
     @start_time = Time.now
-    @guesses = 0
     history = []
     @sequence = sequence
     @game_logic = game_logic
   end
   
   def start_game
+    print UI::GENERATE_MESSAGE % UI::COLOR_STRINGS[game_logic.level]
+    guesses = 0
+    
     while guesses < 12
       input = gets.chomp.downcase
       next if check_length(input)

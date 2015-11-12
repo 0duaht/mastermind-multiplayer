@@ -13,7 +13,7 @@ module MasterMind
   end
  
  
-MasterMind.start
+#MasterMind.start
   # def play_game
     # game_logic = GameLogic.new(ask_level); sequence = game_logic.generate_sequence
     # print UI::GENERATE_MESSAGE % UI::COLOR_STRINGS[game_logic.level]

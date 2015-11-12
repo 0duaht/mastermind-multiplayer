@@ -4,9 +4,12 @@ require 'timehelper'
 require 'player'
 require 'yaml'
 require 'gameplay'
+require 'single_player'
 
 module GameHelper
   extend TimeHelper
+  extend SinglePlayer
+  
   def user_choice
     option_chosen = false
     
@@ -34,7 +37,6 @@ module GameHelper
   
   def play_game
     game_logic = GameLogic.new(ask_level); sequence = game_logic.generate_sequence
-    print UI::GENERATE_MESSAGE % UI::COLOR_STRINGS[game_logic.level]
     
     SinglePlayer.new(sequence, game_logic).start_game
   end
