@@ -12,15 +12,16 @@ class SinglePlayer
   attr_reader :history
   attr_reader :sequence
   attr_reader :game_logic
+  attr_accessor :end_guess
   
   ALLOWED = ['c', 'h', 'q', 'cheat', 'history', 'quit']
-  END_GUESS = 13
   
   def initialize(sequence, game_logic)
     @start_time = Time.now
     @history = []
     @sequence = sequence
     @game_logic = game_logic
+    @end_guess = 13
   end
   
   # generate game sequence and start game play
@@ -68,7 +69,7 @@ class SinglePlayer
     guesses += 1
     if input == sequence.join                         # right guess entered
       right_guess(start_time, sequence, guesses)
-      guesses = END_GUESS                             # sentinel value to end guess loop
+      guesses = end_guess                             # sentinel value to end guess loop
     else
       wrong_guess(sequence, guesses, input, history)  # wrong guess entered
     end

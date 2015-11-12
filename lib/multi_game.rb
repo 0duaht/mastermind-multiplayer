@@ -6,7 +6,7 @@ class MultiPlayer < SinglePlayer
   
   def start_game
     number = num_of_players
-    change_constant(:END_GUESS, (UI::GUESS_MAX*number)+1)
+    end_guess = 12*number + 1
     
     print UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
     history_hash = {}
@@ -25,15 +25,10 @@ class MultiPlayer < SinglePlayer
         next if invalid_length(input)
         next if treat_option(input, history_hash[i])
         guesses = treat_guess(input, guesses, history_hash[i])
-        break if guesses = END_GUESS
+        break if guesses = end_guess
       end
     end
     puts "Sorry, You all Lost." if guesses == UI::GUESS_MAX * number
-  end
-  
-  def change_constant(constant, value)
-    send(:remove_const, constant) if const_defined?(constant)
-    const_set(constant, value)
   end
   
   def num_of_players
