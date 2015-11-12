@@ -38,7 +38,7 @@ class MultiPlayer < SinglePlayer
         end
       end
     end
-    puts UI::SORRY_MULTI_MESSAGE % sequence.join if total_guesses == UI::GUESS_MAX * number
+    puts UI::SORRY_MULTI_MESSAGE % sequence.join.upcase if total_guesses == UI::GUESS_MAX * number
   end
   
   def num_of_players
