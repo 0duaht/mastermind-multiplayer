@@ -21,7 +21,7 @@ To quit the game at any point enter q or quit\n\n"
  
   COLOR_STRINGS = [BEGINNER_COLOR, INTERMEDIATE_COLOR, ADVANCED_COLOR]
   
-  GENERATE_MESSAGE = "\nI have generated a beginner sequence with four elements made \
+  GENERATE_MESSAGE = "\nI have generated %s with %s elements made \
 up of: %s\nUse (q)uit at any time to end the game. \nWhat's your guess?" + INPUT_PROMPT
   
   INVALID_MESSAGE = "\nEntry invalid! Please try again" + INPUT_PROMPT
