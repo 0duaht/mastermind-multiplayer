@@ -11,7 +11,7 @@ class SinglePlayer
   
   def initialize(sequence, game_logic)
     @start_time = Time.now
-    history = []
+    @history = []
     @sequence = sequence
     @game_logic = game_logic
   end
