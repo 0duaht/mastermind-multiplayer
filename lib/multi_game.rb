@@ -8,14 +8,14 @@ class MultiPlayer < SinglePlayer
     number = num_of_players
     end_guess = 12*number + 1
     
-    print UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
+    puts UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
     history_hash = {}
     (1..number).each {|x| history_hash[x] = [] }
     
-    multi_start_game(number)    
+    multi_start_game(number, history_hash)    
   end  
   
-  def multi_start_game(number)
+  def multi_start_game(number, history_hash)
     # allow the user guess up to twelve times before ending game
     guesses = 0
     while guesses < (UI::GUESS_MAX * number)
