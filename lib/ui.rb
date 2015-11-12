@@ -1,4 +1,4 @@
-class UI
+module UI
   WELCOME_MESSAGE = "\nWelcome to the Classy MasterMind game by Tobi\n"
   
   INPUT_PROMPT = "\n>>  "
@@ -49,4 +49,6 @@ up of: %s\nUse (q)uit at any time to end the game. \nWhat's your guess?" + INPUT
   TOP_TEN = '=== TOP TEN ==='
   
   OVERWRITE_MESSAGE = 'Data file already exists. Do you want to add your score to top scores? (y)es or (n)o..'
+  
+  MULTI_START_MESSAGE = "Welcome to the MultiPlayer Challenge. How many users will be playing today?" + INPUT_PROMPT
 end
