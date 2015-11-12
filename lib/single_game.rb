@@ -1,10 +1,15 @@
 require 'ui'
+require 'timehelper'
+require 'player'
+require 'yaml'
+require 'gameplay'
 
 class SinglePlayer
   attr_reader :start_time
   attr_reader :history
   attr_reader :sequence
   attr_reader :game_logic
+  extend TimeHelper
   
   ALLOWED = ['c', 'h', 'q', 'cheat', 'history', 'quit']
   END_GUESS = 13

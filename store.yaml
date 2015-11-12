@@ -166,3 +166,12 @@ sequence:
 - y
 time: 2
 guesses: 1
+--- !ruby/object:Player
+name: Tbaba
+sequence:
+- r
+- g
+- g
+- g
+time: 6
+guesses: 1

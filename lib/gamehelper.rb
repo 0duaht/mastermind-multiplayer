@@ -7,8 +7,6 @@ require 'gameplay'
 require 'single_game'
 
 module GameHelper
-  extend TimeHelper
-  
   def user_choice
     option_chosen = false
     
