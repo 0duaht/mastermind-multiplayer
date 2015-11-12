@@ -26,9 +26,7 @@ class MultiPlayer < SinglePlayer
       while total_guesses < (UI::GUESS_MAX * number)
         for i in (1..number)
           last_guess = guesses_hash[i]
-          print "---"
-          print guesses_hash[i]
-          print "----"
+          print "************"
           print UI::PLAYER_MESSAGE % i
           while guesses_hash[i] == last_guess
             input = gets.chomp.downcase

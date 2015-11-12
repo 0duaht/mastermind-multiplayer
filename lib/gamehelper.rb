@@ -38,7 +38,7 @@ module GameHelper
   end
   
   def ask_mode(sequence, game_logic)
-    puts UI::MODE_SELECT
+    print UI::MODE_SELECT
     option_chosen = false
     
     while !option_chosen
