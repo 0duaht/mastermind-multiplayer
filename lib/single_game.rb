@@ -117,7 +117,7 @@ class SinglePlayer
     
     puts UI::INFO_MESSAGE % [input.upcase, result[:correct_elements], result[:correct_position]]
     puts UI::GUESSES_MESSAGE % [guesses, guesses > 1 ? "guesses" : "guess"]
-    print INPUT_PROMPT
+    print UI::INPUT_PROMPT
   end
   
   def store_game(sequence, guesses, time)      #get player name and store details to file  
