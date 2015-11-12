@@ -70,22 +70,31 @@ class SinglePlayer
     return guesses
   end
   
-  def print_top_ten
+  def print_top_ten(current_player)
     top_ten_list = YAML.load_stream(File.open(UI::DB_STORE)).sort{|player1, player2|  # load player objects from db and sort by guesses/time
       by_guess = player1.guesses <=> player2.guesses
       by_guess == 0 ? player1.time <=> player2.time : by_guess
     }[0...10]  if File.file?(UI::DB_STORE) 
     
+    puts average_string(top_ten_list, current_player)
     puts UI::TOP_TEN
     top_ten_list.each_with_index{|player, index| puts "#{index+1}. " + player.to_s }
   end
   
   def right_guess(start_time, sequence, guesses)
     time_elapsed = (Time.now - start_time).to_i
-    name = store_game(sequence, guesses, time_elapsed)
+    current_player = store_game(sequence, guesses, time_elapsed)
     
-    puts UI::CONGRATS_MESSAGE % [name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", time_convert(time_elapsed)]
-    print_top_ten
+    puts UI::CONGRATS_MESSAGE % [current_player.name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", time_convert(time_elapsed)]
+    print_top_ten(current_player)
+  end
+  
+  def average_string(top_ten_list, current_player)
+    time_diff = current_player.time - (top_ten_list.inject(0){ |sum, player| sum += player.time } / top_ten_list.length)
+    guess_diff = current_player.guesses - (top_ten_list.inject(0){ |sum, player| sum += player.guesses } / top_ten_list.length)
+    
+    "That's %s %s and %s %s %s the average" % [time_convert(time_difference.abs), time_diff < 0 ? "slower" : "faster",
+      guess_diff.abs, guesses == 1 ? "guess" : "guesses", guess_diff < 0 ? "slower" : "faster"]
   end
   
   def wrong_guess(sequence, guesses, input, history)
@@ -104,7 +113,7 @@ class SinglePlayer
     # write player object to file if file does not exist, or verify whether to add record from user, and write if it exists
     File.open(UI::DB_STORE, 'a'){|file| file.write(YAML.dump(current_player))} if File.exist?(UI::DB_STORE) && user_permits_store
      
-    name
+    current_player
   end
   
   def user_permits_store

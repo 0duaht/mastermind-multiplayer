@@ -220,3 +220,12 @@ sequence:
 - b
 time: 3
 guesses: 1
+--- !ruby/object:Player
+name: Tobiu
+sequence:
+- b
+- b
+- b
+- y
+time: 3
+guesses: 1

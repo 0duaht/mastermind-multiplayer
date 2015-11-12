@@ -39,7 +39,7 @@ module GameHelper
   
   def print_help
     puts UI::HELP_MESSAGE
-    print UI::OPTIONS_MESSAGE
+    print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
   end
   
   def ask_level
