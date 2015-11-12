@@ -24,8 +24,7 @@ class SinglePlayer
   end
   
   def start_game
-    colors = UI::COLOR_STRINGS[game_logic.level]
-    print UI::GENERATE_MESSAGE % [game_logic.sequence_type, colors.length, colors]
+    print UI::GENERATE_MESSAGE % [game_logic.sequence_type, gane_logic.length, UI::COLOR_STRINGS[game_logic.level]]
     guesses = 0
     
     while guesses < 12
