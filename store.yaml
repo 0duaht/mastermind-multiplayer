@@ -358,3 +358,13 @@ sequence:
 - g
 time: 6
 guesses: 1
+--- !ruby/object:Player
+name: Tray
+sequence:
+- y
+- g
+- b
+- r
+- r
+time: 201
+guesses: 2

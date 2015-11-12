@@ -11,12 +11,12 @@ module TimeHelper
     end    
      
     if minutes >= 1
-      time_string << (minutes.to_s + (minutes == 1 ? ' minutes' : ' minute'))
+      time_string << (minutes.to_s + (minutes == 1 ? ' minute' : ' minutes'))
       time_string << ', ' if seconds > 0
     end
      
     if seconds >= 1
-      time_string << (seconds.to_s + (seconds == 1 ? ' seconds' : ' second'))
+      time_string << (seconds.to_s + (seconds == 1 ? ' second' : ' seconds'))
     end
     
   end
