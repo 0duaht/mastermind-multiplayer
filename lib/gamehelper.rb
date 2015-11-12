@@ -47,13 +47,31 @@ module GameHelper
       input = gets.chomp.downcase
       case input
       when "s", "single" then SinglePlayer.new(sequence, game_logic).start_game
-      when "m", "multi" then MultiPlayer.new(sequence, game_logic).start_game
+      when "m", "multi" then MultiPlayer.new(sequence, game_logic, hide_guess?).start_game
       else 
         print UI::INVALID_MESSAGE
         option_chosen = false
       end
     end
     
+  end
+  
+  def hide_guess?
+    print UI::PASSWORD_MESSAGE
+    option_chosen = false
+    
+    while !option_chosen
+      option_chosen = true                              # assume user selects valid option so as to quit loop
+      
+      input = gets.chomp.downcase
+      case input                                        
+      when "y", "yes" then return true
+      when "n", "no" then return false
+      else                                               # user selects an invalid option
+        print UI::INVALID_MESSAGE
+        option_chosen = false
+      end  
+    end
   end
   
   def print_help

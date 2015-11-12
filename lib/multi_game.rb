@@ -4,6 +4,12 @@ require 'ui'
 require 'io/console'
 
 class MultiPlayer < SinglePlayer
+  attr_reader :hide_guess
+  
+  def initialize(sequence, game_logic, hide_guess)
+    super(sequence, game_logic)
+    @hide_guess = hide_guess  
+  end
   
   def start_game
     number = num_of_players
@@ -40,11 +46,20 @@ class MultiPlayer < SinglePlayer
   end
   
   def get_guess(history_hash, guesses_hash, i)
-    input = STDIN.noecho(&:gets).chomp
+    input = hide_guess ? STDIN.noecho(&:gets).chomp : gets.chomp
     return guesses_hash[i] if invalid_length(input)                            # invalid length for entry
     return guesses_hash[i] if treat_option(input, history_hash[i])             # entry is a game option
     guesses_hash[i] = treat_guess(input, guesses_hash[i], history_hash[i])  # player enters a guess
     guesses_hash[i]
+  end
+  
+  def wrong_guess(sequence, guesses, input, history)
+    result = GameLogic.check_input(sequence, input)                                       # get results from input
+    history << GamePlay.new(input, result[:correct_elements], result[:correct_position])  # add game play to history
+    
+    puts UI::INFO_MESSAGE % [input.upcase, result[:correct_elements], result[:correct_position]] if !hide_guess
+    puts UI::GUESSES_MESSAGE % [guesses, guesses > 1 ? "guesses" : "guess"]
+    print UI::INPUT_PROMPT
   end
   
   def num_of_players

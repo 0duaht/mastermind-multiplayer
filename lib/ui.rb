@@ -61,5 +61,7 @@ up of: %s\nUse (q)uit at any time to end the game. \nWhat's your guess?"
   
   SORRY_SINGLE_MESSAGE = "Sorry, You lost. The sequence is %s"
   
-  SORRY_MULTI_MESSAGE = "Sorry, You all lost. The sequence is %s" 
+  SORRY_MULTI_MESSAGE = "Sorry, You all lost. The sequence is %s"
+  
+  PASSWORD_HIDE = "Would you like to hide each player's guesses? (y)es or (n)o ?" 
 end
