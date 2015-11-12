@@ -93,7 +93,7 @@ class SinglePlayer
     time_diff = current_player.time - (top_ten_list.inject(0){ |sum, player| sum += player.time } / top_ten_list.length)
     guess_diff = current_player.guesses - (top_ten_list.inject(0){ |sum, player| sum += player.guesses } / top_ten_list.length)
     
-    "That's %s %s and %s %s %s the average" % [time_convert(time_difference.abs), time_diff < 0 ? "slower" : "faster",
+    "That's %s %s and %s %s %s the average" % [time_convert(time_diff.abs), time_diff < 0 ? "slower" : "faster",
       guess_diff.abs, guesses == 1 ? "guess" : "guesses", guess_diff < 0 ? "slower" : "faster"]
   end
   
