@@ -24,6 +24,7 @@ class MultiPlayer < SinglePlayer
     catch :player_wins do
       while total_guesses < (UI::GUESS_MAX * number)        # until all players have exhausted their guesses
         for i in (1..number)
+          total_guesses += 1
           last_guess = guesses_hash[i]
           print "************"
           print UI::PLAYER_MESSAGE % i
@@ -34,12 +35,10 @@ class MultiPlayer < SinglePlayer
             guesses_hash[i] = treat_guess(input, guesses_hash[i], history_hash[i])
             throw(:player_wins) if guesses_hash[i] == end_guess
           end
-          puts ""
         end
-        total_guesses += 1
       end
     end
-    puts UI::SORRY_MULTI_MESSAGE if total_guesses == UI::GUESS_MAX * number
+    puts UI::SORRY_MULTI_MESSAGE % sequence.join if total_guesses == UI::GUESS_MAX * number
   end
   
   def num_of_players
