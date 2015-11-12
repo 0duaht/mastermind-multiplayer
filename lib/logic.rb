@@ -1,13 +1,15 @@
 class GameLogic
-  attr_reader :level; attr_reader :length; attr_reader :color_array
+  attr_reader :level; attr_reader :length; attr_reader :color_array; attr_reader :sequence_type
   
   BEGINNER, INTERMEDIATE, ADVANCED = 0, 1, 2
+  SEQUENCE_TYPES = ['a beginner', 'an intermediate', 'an advanced']
   COLORS = [['r', 'g', 'b', 'y'], ['r', 'g', 'b', 'y', 'o'], ['r', 'g', 'b', 'y', 'o', 'v']]
   
   def initialize(level)
     @level = level
     @color_array = COLORS[level]
     @length = color_array.length
+    @sequence_type = SEQUENCE_TYPES[level]
   end
   
   def generate_sequence
