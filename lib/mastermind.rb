@@ -5,7 +5,7 @@ module MasterMind
   VERSION = 1.0
   extend GameHelper
   
-  def start
+  def self.start
     puts UI::WELCOME_MESSAGE
     print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
     

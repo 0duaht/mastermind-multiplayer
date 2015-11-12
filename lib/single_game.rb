@@ -1,5 +1,3 @@
-require 'mastermind'
-
 class SinglePlayer
   attr_reader :start_time
   attr_reader :guesses
@@ -9,7 +7,6 @@ class SinglePlayer
   
   ALLOWED = ['c', 'h', 'q', 'cheat', 'history', 'quit']
   END_GUESS = 13
-  include MasterMind
   
   def initialize(sequence, game_logic)
     @start_time = Time.now

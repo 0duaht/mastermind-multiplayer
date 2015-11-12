@@ -32,6 +32,13 @@ module GameHelper
     return true
   end
   
+  def play_game
+    game_logic = GameLogic.new(ask_level); sequence = game_logic.generate_sequence
+    print UI::GENERATE_MESSAGE % UI::COLOR_STRINGS[game_logic.level]
+    
+    SinglePlayer.new(sequence, game_logic).start_game
+  end
+  
   def print_help
     puts UI::HELP_MESSAGE
     print UI::OPTIONS_MESSAGE
