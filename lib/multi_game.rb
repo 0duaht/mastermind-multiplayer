@@ -46,7 +46,7 @@ class MultiPlayer < SinglePlayer
     print UI::MULTI_START_MESSAGE
     input = gets.chomp
     
-    while (input.to_i > 1)
+    while (input.to_i < 1)
       print UI::INVALID_MESSAGE
       input = gets.chomp
     end
