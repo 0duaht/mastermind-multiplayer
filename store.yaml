@@ -286,3 +286,12 @@ sequence:
 - y
 time: 29
 guesses: 2
+--- !ruby/object:Player
+name: Yiu
+sequence:
+- y
+- g
+- y
+- g
+time: 5
+guesses: 1

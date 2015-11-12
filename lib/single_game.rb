@@ -85,6 +85,7 @@ class SinglePlayer
     puts average_string(top_ten_list, current_player)                                 # print out user's performance compared to average
     
     # print out top ten results
+    puts ""
     puts UI::TOP_TEN                                                                  
     top_ten_list.each_with_index{|player, index| puts "#{index+1}. " + player.to_s }
   end
