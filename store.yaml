@@ -295,3 +295,12 @@ sequence:
 - g
 time: 5
 guesses: 1
+--- !ruby/object:Player
+name: You
+sequence:
+- y
+- g
+- g
+- b
+time: 4
+guesses: 1
