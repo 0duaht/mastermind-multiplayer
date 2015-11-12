@@ -23,22 +23,26 @@ class MultiPlayer < SinglePlayer
     total_guesses = 0                                       # total guesses of all players
     catch :player_wins do
       while total_guesses < (UI::GUESS_MAX * number)        # until all players have exhausted their guesses
-        for i in (1..number)
+        for i in (1..number)                                # loop through to allow each player have a guess
           total_guesses += 1
-          last_guess = guesses_hash[i]
+          last_guess = guesses_hash[i]                      # to store player's last guess
           print "************"
           print UI::PLAYER_MESSAGE % i
-          while guesses_hash[i] == last_guess
-            input = gets.chomp.downcase
-            next if invalid_length(input)
-            next if treat_option(input, history_hash[i])
-            guesses_hash[i] = treat_guess(input, guesses_hash[i], history_hash[i])
-            throw(:player_wins) if guesses_hash[i] == end_guess
+          while guesses_hash[i] == last_guess               # to counter situations where user enters invalid input, guess would still be same
+            guesses_hash[i] = get_guess(history_hash, guesses_hash, i)
+            throw(:player_wins) if guesses_hash[i] == end_guess # if there is a win
           end
         end
       end
     end
-    puts UI::SORRY_MULTI_MESSAGE % sequence.join.upcase if total_guesses == UI::GUESS_MAX * number
+    puts UI::SORRY_MULTI_MESSAGE % sequence.join.upcase if total_guesses == UI::GUESS_MAX * number # guesses exhausted with no winner
+  end
+  
+  def get_guess(history_hash, guesses_hash, i)
+    input = gets.chomp.downcase
+    next if invalid_length(input)                            # invalid length for entry
+    next if treat_option(input, history_hash[i])             # entry is a game option
+    guesses_hash[i] = treat_guess(input, guesses_hash[i], history_hash[i])  # player enters a guess
   end
   
   def num_of_players
