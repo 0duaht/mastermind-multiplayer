@@ -1,3 +1,5 @@
+require 'ui'
+
 class SinglePlayer
   attr_reader :start_time
   attr_reader :history
@@ -20,23 +22,23 @@ class SinglePlayer
     
     while guesses < 12
       input = gets.chomp.downcase
-      next if check_length(input)
+      next if invalid_length(input)
       next if treat_option(input)
       guesses = treat_guess(input, guesses)
     end
   end
   
-  def check_length(input)
+  def invalid_length(input)
     if input.length < game_logic.length && !(ALLOWED.include?(input))
       puts UI::INPUT_SHORT_MESSAGE
-      return false
+      return true
       
     elsif input.length > game_logic.length && !(ALLOWED.include?(input)) 
       puts UI::INPUT_LONG_MESSAGE
-      return false
+      return true
     end
     
-    return true
+    return false
   end
   
   def treat_option(input)
