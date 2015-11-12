@@ -313,3 +313,12 @@ sequence:
 - b
 time: 2
 guesses: 1
+--- !ruby/object:Player
+name: Asdyu
+sequence:
+- y
+- y
+- r
+- b
+time: 15
+guesses: 2

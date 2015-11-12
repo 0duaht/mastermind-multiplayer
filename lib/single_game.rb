@@ -106,7 +106,7 @@ class SinglePlayer
     guess_diff = (top_ten_list.inject(0){ |sum, player| sum += player.guesses } / top_ten_list.length.to_f).round - current_player.guesses
     
     "That's %s %s and %s %s %s the average\n" % [time_convert(time_diff.abs), time_diff < 0 ? "slower" : "faster",
-      guess_diff.abs, guess_diff.abs == 1 ? "guess" : "guesses", guess_diff < 0 ? "fewer" : "more"]
+      guess_diff.abs, guess_diff.abs == 1 ? "guess" : "guesses", guess_diff < 0 ? "more" : "fewer"]
   end
   
   def wrong_guess(sequence, guesses, input, history)
