@@ -29,13 +29,13 @@ class SinglePlayer
     guesses = 0
     
     # allow the user guess up to twelve times before ending game
-    while guesses < 12
+    while guesses < UI::GUESS_MAX
       input = gets.chomp.downcase
       next if invalid_length(input)
-      next if treat_option(input)
-      guesses = treat_guess(input, guesses)
+      next if treat_option(input, history)
+      guesses = treat_guess(input, guesses, history)
     end
-    puts "Sorry, You Lost." if guesses == 12    
+    puts "Sorry, You Lost." if guesses == UI::GUESS_MAX   
   end
   
   # check if user's guess is longer or fewer than the required length
@@ -53,7 +53,7 @@ class SinglePlayer
   end
   
   # check if user selects an option
-  def treat_option(input)
+  def treat_option(input, history)
     case input
     when "h", "history" then print_history(history)
     when "q", "quit" then exit(0)
@@ -64,7 +64,7 @@ class SinglePlayer
   end
   
   # treat guesses entered by user
-  def treat_guess(input, guesses)
+  def treat_guess(input, guesses, history)
     guesses += 1
     if input == sequence.join                         # right guess entered
       right_guess(start_time, sequence, guesses)

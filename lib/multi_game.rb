@@ -6,19 +6,35 @@ class MultiPlayer < SinglePlayer
   
   def start_game
     number = num_of_players
+    change_constant(:END_GUESS, (UI::GUESS_MAX*number)+1)
     
     print UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
-    guesses = 0
+    history_hash = {}
+    (1..number).each {|x| history_hash[x] = [] }
     
-    # allow the user guess up to twelve times before ending game
-    while guesses < 12
-      input = gets.chomp.downcase
-      next if invalid_length(input)
-      next if treat_option(input)
-      guesses = treat_guess(input, guesses)
-    end
-    puts "Sorry, You Lost." if guesses == 12    
+    multi_start_game    
   end  
+  
+  def multi_start_game
+    # allow the user guess up to twelve times before ending game
+    guesses = 0
+    while guesses < (UI::GUESS_MAX * number)
+      for i in (1..number)
+        print UI::PLAYER_MESSAGE % i
+        input = gets.chomp.downcase
+        next if invalid_length(input)
+        next if treat_option(input, history_hash[i])
+        guesses = treat_guess(input, guesses, history_hash[i])
+        break if guesses = END_GUESS
+      end
+    end
+    puts "Sorry, You all Lost." if guesses == UI::GUESS_MAX * number
+  end
+  
+  def change_constant(constant, value)
+    send(:remove_const, constant) if const_defined?(constant)
+    const_set(constant, value)
+  end
   
   def num_of_players
     print UI::MULTI_START_MESSAGE
@@ -26,6 +42,7 @@ class MultiPlayer < SinglePlayer
     
     while (input.to_i == 0)
       print UI::INVALID_MESSAGE
+      input = gets.chomp
     end
     
     return input.to_i
@@ -33,4 +50,4 @@ class MultiPlayer < SinglePlayer
   
 end
 
-MultiPlayer.new(['r', 'g', 'b', 'v'], GameLogic.new(1)).start_game
+MultiPlayer.new(['r', 'g', 'y', 'b'], GameLogic.new(0)).start_game
