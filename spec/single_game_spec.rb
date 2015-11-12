@@ -1,6 +1,9 @@
 require 'spec_helper'
-
 describe "Single Player" do
+  before do
+    allow($stdout).to receive(:write)
+  end
+  
   subject do
     SinglePlayer.new(['r', 'g', 'b', 'y', 'g'], GameLogic.new(1))
   end

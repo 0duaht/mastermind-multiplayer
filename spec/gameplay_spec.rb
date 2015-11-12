@@ -1,6 +1,10 @@
 require_relative 'spec_helper'
 
 describe GamePlay do
+  before do
+    allow($stdout).to receive(:write)
+  end
+  
   subject do
     GamePlay.new("rggy", 2, 1)
   end

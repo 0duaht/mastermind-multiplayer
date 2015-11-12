@@ -1,5 +1,8 @@
 require_relative 'spec_helper'
 describe TimeHelper do
+  before do
+    allow($stdout).to receive(:write)
+  end
   let(:test_class) {Class.new{extend TimeHelper}}
   describe "#time_convert" do
     it "returns the right time given a specified number of seconds" do

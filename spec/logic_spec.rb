@@ -1,6 +1,9 @@
 require_relative 'spec_helper'
 
 describe GameLogic do
+  before do
+    allow($stdout).to receive(:write)
+  end
   subject do
     [GameLogic.new(0), GameLogic.new(1), GameLogic.new(2)]  
   end

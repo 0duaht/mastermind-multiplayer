@@ -1,6 +1,9 @@
 require_relative 'spec_helper'
 
 describe Player do
+  before do
+    allow($stdout).to receive(:write)
+  end
   subject do
     Player.new("Jane Doe", ['r', 'g', 'b', 'r'], 128, 5)
   end
