@@ -85,8 +85,6 @@ class SinglePlayer
     
     puts UI::CONGRATS_MESSAGE % [name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", time_convert(time_elapsed)]
     print_top_ten
-    print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
-    user_choice
   end
   
   def wrong_guess(sequence, guesses, input, history)

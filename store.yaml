@@ -193,3 +193,12 @@ sequence:
 - b
 time: 11
 guesses: 2
+--- !ruby/object:Player
+name: Tsdf
+sequence:
+- b
+- r
+- b
+- b
+time: 10
+guesses: 4

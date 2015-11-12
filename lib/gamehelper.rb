@@ -32,6 +32,8 @@ module GameHelper
     game_logic = GameLogic.new(ask_level); sequence = game_logic.generate_sequence
     
     SinglePlayer.new(sequence, game_logic).start_game
+    print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
+    user_choice
   end
   
   def print_help
