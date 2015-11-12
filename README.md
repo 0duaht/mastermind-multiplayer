@@ -1,24 +1,24 @@
-# Tobi::Mastermind
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/`. To experiment with that code, run `bin/console` for an interactive prompt.
+# Mastermind
 
 An implementation of the MasterMind game. See http://https://en.wikipedia.org/wiki/Mastermind for details.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Download files as zip here - https://github.com/andela-toduah/tobi-mastermind/archive/master.zip
+Then unzip all files to same directory.
+Once unzipped, change directory into the tobi-mastermind folder
 
-```ruby
-gem 'tobi-mastermind'
-```
+    $ cd tobi-mastermind
 
-And then execute:
+Then run 
 
-    $ bundle
+    $ rake install
 
-Or install it yourself as:
+After installation is completed, run 
 
-    $ gem install tobi-mastermind
+    $ mastermind 
+
+to start game.
 
 ## Usage
 
