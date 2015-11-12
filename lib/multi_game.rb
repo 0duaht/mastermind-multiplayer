@@ -20,10 +20,9 @@ class MultiPlayer < SinglePlayer
   end  
   
   def multi_start_game(number, history_hash, guesses_hash)
-    # allow the user guess up to twelve times before ending game
-    total_guesses = 0
+    total_guesses = 0                                       # total guesses of all players
     catch :player_wins do
-      while total_guesses < (UI::GUESS_MAX * number)
+      while total_guesses < (UI::GUESS_MAX * number)        # until all players have exhausted their guesses
         for i in (1..number)
           last_guess = guesses_hash[i]
           print "************"
@@ -37,6 +36,7 @@ class MultiPlayer < SinglePlayer
           end
           puts ""
         end
+        total_guess += 1
       end
     end
     puts "Sorry, You all Lost." if total_guesses == UI::GUESS_MAX * number
