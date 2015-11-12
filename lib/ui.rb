@@ -32,7 +32,7 @@ up of: %s\nUse (q)uit at any time to end the game. \nWhat's your guess?" + INPUT
   
   SEQUENCE_MESSAGE = "The sequence is %s" + INPUT_PROMPT
   
-  CONGRATS_MESSAGE = "\n%s, You guessed the sequence '%s' in %s %s over %s\n\n"
+  CONGRATS_MESSAGE = "\n%s, You guessed the sequence '%s' in %s %s over %s"
   
   INFO_MESSAGE = "'%s' has %s of the correct elements with %s in the correct positions."
   

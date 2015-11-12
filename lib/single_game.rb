@@ -85,7 +85,7 @@ class SinglePlayer
     time_elapsed = (Time.now - start_time).to_i
     current_player = store_game(sequence, guesses, time_elapsed)
     
-    print UI::CONGRATS_MESSAGE % [current_player.name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", 
+    puts UI::CONGRATS_MESSAGE % [current_player.name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", 
       time_convert(time_elapsed) << '.']
     print_top_ten(current_player)
   end

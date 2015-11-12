@@ -265,3 +265,13 @@ sequence:
 - b
 time: 4
 guesses: 1
+--- !ruby/object:Player
+name: Madara
+sequence:
+- y
+- g
+- r
+- o
+- g
+time: 15
+guesses: 1
