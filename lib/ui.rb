@@ -41,7 +41,7 @@ up of: %s\nUse (q)uit at any time to end the game. \nWhat's your guess?"
   
   END_MESSAGE = "Do you want to (p)lay again or (q)uit?"
   
-  GUESSES_MESSAGE = "You've taken %s %s"  + INPUT_PROMPT
+  GUESSES_MESSAGE = "You've taken %s %s"
   
   LEVEL_MESSAGE = "\nDifficulty level: (b)eginner, (i)ntermediate or (a)dvanced? " + INPUT_PROMPT
   

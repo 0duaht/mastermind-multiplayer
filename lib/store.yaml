@@ -99,3 +99,39 @@ sequence:
 - r
 time: 2
 guesses: 1
+--- !ruby/object:Player
+name: Tbff
+sequence:
+- r
+- g
+- y
+- b
+time: 74
+guesses: 2
+--- !ruby/object:Player
+name: Toisdaf
+sequence:
+- r
+- g
+- y
+- b
+time: 8
+guesses: 2
+--- !ruby/object:Player
+name: Yuo
+sequence:
+- r
+- g
+- y
+- b
+time: 9
+guesses: 2
+--- !ruby/object:Player
+name: Ttiosd
+sequence:
+- r
+- g
+- y
+- b
+time: 24
+guesses: 2

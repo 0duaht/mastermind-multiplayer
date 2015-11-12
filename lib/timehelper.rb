@@ -5,20 +5,18 @@ module TimeHelper
     seconds = (time_int % 3600) % 60
     time_string = ''
     
-    if hours < 0
-      time_string << (hours.to_s + " hours")
+    if hours >= 1
+      time_string << (hours.to_s + (time == 1 ? ' hour' :' hours'))
       time_string << ', ' if minutes > 0
     end    
      
-    if minutes > 0
-      time_string << (minutes.to_s + ' minutes')
+    if minutes >= 1
+      time_string << (minutes.to_s + (minutes == 1 ? ' minutes' : ' minute'))
       time_string << ', ' if seconds > 0
     end
      
-    if seconds > 1
-      time_string << (seconds.to_s + ' seconds')
-    elsif seconds == 1
-      time_string << (seconds.to_s + ' second')
+    if seconds >= 1
+      time_string << (seconds.to_s + (seconds == 1 ? ' seconds' : ' second'))
     end
     
   end

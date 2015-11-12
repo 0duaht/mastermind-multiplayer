@@ -10,25 +10,38 @@ class MultiPlayer < SinglePlayer
     
     puts UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
     history_hash = {}
-    (1..number).each {|x| history_hash[x] = [] }
+    guesses_hash = {}
+    (1..number).each {|x| 
+      history_hash[x] = []
+      guesses_hash[x] = 0 
+    }
     
-    multi_start_game(number, history_hash)    
+    multi_start_game(number, history_hash, guesses_hash)    
   end  
   
-  def multi_start_game(number, history_hash)
+  def multi_start_game(number, history_hash, guesses_hash)
     # allow the user guess up to twelve times before ending game
-    guesses = 0
-    while guesses < (UI::GUESS_MAX * number)
-      for i in (1..number)
-        print UI::PLAYER_MESSAGE % i
-        input = gets.chomp.downcase
-        next if invalid_length(input)
-        next if treat_option(input, history_hash[i])
-        guesses = treat_guess(input, guesses, history_hash[i])
-        break if guesses = end_guess
+    total_guesses = 0
+    catch :player_wins do
+      while total_guesses < (UI::GUESS_MAX * number)
+        for i in (1..number)
+          last_guess = guesses_hash[i]
+          print "---"
+          print guesses_hash[i]
+          print "----"
+          print UI::PLAYER_MESSAGE % i
+          while guesses_hash[i] == last_guess
+            input = gets.chomp.downcase
+            next if invalid_length(input)
+            next if treat_option(input, history_hash[i])
+            guesses_hash[i] = treat_guess(input, guesses_hash[i], history_hash[i])
+            throw(:player_wins) if guesses_hash[i] == end_guess
+          end
+          puts ""
+        end
       end
     end
-    puts "Sorry, You all Lost." if guesses == UI::GUESS_MAX * number
+    puts "Sorry, You all Lost." if total_guesses == UI::GUESS_MAX * number
   end
   
   def num_of_players
@@ -44,5 +57,3 @@ class MultiPlayer < SinglePlayer
   end
   
 end
-
-MultiPlayer.new(['r', 'g', 'y', 'b'], GameLogic.new(0)).start_game
