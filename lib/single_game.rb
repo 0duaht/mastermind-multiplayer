@@ -84,7 +84,7 @@ class SinglePlayer
       by_guess == 0 ? player1.time <=> player2.time : by_guess                        # then sort by time
     }[0...10]  if File.file?(UI::DB_STORE)                                            # pick out top ten
     
-    puts average_string(top_ten_list, current_player) if !top_ten_list.nil?           # print out user's performance compared to average
+    puts average_string(top_ten_list, current_player) if !top_ten_list.length > 1     # print out user's performance compared to average
     
     # print out top ten results
     if !top_ten_list.nil?
