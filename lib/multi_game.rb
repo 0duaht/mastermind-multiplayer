@@ -39,19 +39,18 @@ class MultiPlayer < SinglePlayer
         total_guesses += 1
       end
     end
-    puts "Sorry, You all Lost.The sequence is %s" % if total_guesses == UI::GUESS_MAX * number
+    puts UI::SORRY_MULTI_MESSAGE if total_guesses == UI::GUESS_MAX * number
   end
   
   def num_of_players
     print UI::MULTI_START_MESSAGE
     input = gets.chomp
     
-    while (input.to_i == 0)
+    while (input.to_i > 1)
       print UI::INVALID_MESSAGE
       input = gets.chomp
     end
     
     return input.to_i
   end
-  
 end

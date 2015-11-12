@@ -57,5 +57,9 @@ up of: %s\nUse (q)uit at any time to end the game. \nWhat's your guess?"
   
   MULTI_START_MESSAGE = "Welcome to the MultiPlayer Challenge. How many users will be playing today?" + INPUT_PROMPT
   
-  PLAYER_MESSAGE = "Player %s's turn" + INPUT_PROMPT
+  PLAYER_MESSAGE = "********Player %s's turn" + INPUT_PROMPT
+  
+  SORRY_SINGLE_MESSAGE = "Sorry, You lost. The sequence is %s"
+  
+  SORRY_MULTI_MESSAGE = "Sorry, You all lost. The sequence is %s" 
 end

@@ -37,7 +37,7 @@ class SinglePlayer
       next if treat_option(input, history)
       guesses = treat_guess(input, guesses, history)
     end
-    puts "Sorry, You Lost." if guesses == UI::GUESS_MAX   
+    puts UI::SORRY_SINGLE_MESSAGE % sequence.join if guesses == UI::GUESS_MAX   
   end
   
   # check if user's guess is longer or fewer than the required length
