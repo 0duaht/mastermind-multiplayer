@@ -84,12 +84,14 @@ class SinglePlayer
       by_guess == 0 ? player1.time <=> player2.time : by_guess                        # then sort by time
     }[0...10]  if File.file?(UI::DB_STORE)                                            # pick out top ten
     
-    puts average_string(top_ten_list, current_player)                                 # print out user's performance compared to average
+    puts average_string(top_ten_list, current_player) if !top_ten_list.nil?           # print out user's performance compared to average
     
     # print out top ten results
-    puts ""
-    puts UI::TOP_TEN                                                                  
-    top_ten_list.each_with_index{|player, index| puts "#{index+1}. " + player.to_s }
+    if !top_ten_list.nil?
+      puts ""
+      puts UI::TOP_TEN                                                                  
+      top_ten_list.each_with_index{|player, index| puts "#{index+1}. " + player.to_s }
+    end
   end
   
   def right_guess(start_time, sequence, guesses)
@@ -126,12 +128,13 @@ class SinglePlayer
     current_player = Player.new(name, sequence, time, guesses)  # create new player object
     
     # write player object to file if file does not exist, or verify whether to add record from user, and write if it exists
-    File.open(UI::DB_STORE, 'a'){|file| file.write(YAML.dump(current_player))} if File.exist?(UI::DB_STORE) && user_permits_store
+    File.open(UI::DB_STORE, 'a'){|file| file.write(YAML.dump(current_player))} if user_permits_store
      
     current_player
   end
   
   def user_permits_store                    # confirm from user to add record to top-scores if file exists
+    return true if !File.exist?(UI::DB_STORE)    # if file does not exist, return true
     print UI::OVERWRITE_MESSAGE
     print UI::INPUT_PROMPT
     option_chosen = false
