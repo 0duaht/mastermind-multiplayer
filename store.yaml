@@ -1,0 +1,45 @@
+--- !ruby/object:Player
+name: Tobi
+sequence:
+- b
+- r
+- r
+- r
+time: 5
+guesses: 1
+--- !ruby/object:Player
+name: Loba
+sequence:
+- r
+- r
+- b
+- b
+time: 3
+guesses: 1
+--- !ruby/object:Player
+name: Tobiloba
+sequence:
+- g
+- r
+- r
+- r
+time: 11
+guesses: 2
+--- !ruby/object:Player
+name: Tobi
+sequence:
+- b
+- b
+- r
+- r
+time: 12
+guesses: 2
+--- !ruby/object:Player
+name: Tobi
+sequence:
+- b
+- y
+- g
+- y
+time: 10
+guesses: 2
