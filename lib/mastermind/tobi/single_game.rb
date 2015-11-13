@@ -91,10 +91,7 @@ module MasterMind
       end
       
       def print_top_ten(current_player)
-        top_ten_list = YAML.load_stream(File.open(UI::DB_STORE)).sort{|player1, player2|  # load player objects from db and sort by guesses/time
-          by_guess = player1.guesses <=> player2.guesses                                  # first sort by guesses
-          by_guess == 0 ? player1.time <=> player2.time : by_guess                        # then sort by time
-        }[0...10]  if File.file?(UI::DB_STORE)                                            # pick out top ten
+        top_ten_list = get_top_ten
         
         puts average_string(top_ten_list, current_player) if top_ten_list.length > 1     # print out user's performance compared to average
         
@@ -104,6 +101,13 @@ module MasterMind
           puts UI::TOP_TEN                                                                  
           top_ten_list.each_with_index{|player, index| puts "#{index+1}. " + player.to_s }
         end
+      end
+      
+      def get_top_ten
+        YAML.load_stream(File.open(UI::DB_STORE)).sort{|player1, player2|  # load player objects from db and sort by guesses/time
+          by_guess = player1.guesses <=> player2.guesses                                  # first sort by guesses
+          by_guess == 0 ? player1.time <=> player2.time : by_guess                        # then sort by time
+        }[0...10]  if File.file?(UI::DB_STORE)                                            # pick out top ten
       end
       
       def right_guess(start_time, sequence, guesses)
