@@ -16,4 +16,4 @@ module MasterMind
   end
 end
 
-MasterMind::Tobi.start
+#MasterMind::Tobi.start
