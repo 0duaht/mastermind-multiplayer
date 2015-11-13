@@ -117,9 +117,10 @@ module MasterMind
       
       def average_string(top_ten_list, current_player)                                    # generates user's performance compared to average
         # time difference obtained
-        time_diff = (top_ten_list.inject(0){ |sum, player| sum += player.time } / top_ten_list.length.to_f).round - current_player.time
+        #time_diff = (top_ten_list.inject(0){ |sum, player| sum += player.time } / top_ten_list.length.to_f).round - current_player.time
         # guess difference obtained
-        guess_diff = (top_ten_list.inject(0){ |sum, player| sum += player.guesses } / top_ten_list.length.to_f).round - current_player.guesses
+        #guess_diff = (top_ten_list.inject(0){ |sum, player| sum += player.guesses } / top_ten_list.length.to_f).round - current_player.guesses
+        time_diff = '2'; guess_diff = '4'
         
         "That's %s %s and %s %s %s the average\n" % [time_convert(time_diff.abs), time_diff < 0 ? "slower" : "faster",
           guess_diff.abs, guess_diff.abs == 1 ? "guess" : "guesses", guess_diff < 0 ? "more" : "fewer"]
