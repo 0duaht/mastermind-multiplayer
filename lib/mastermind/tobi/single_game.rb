@@ -44,7 +44,10 @@ module MasterMind
         length_or_option = false
         
         length_or_option = invalid_length?(input)
-        length_or_option = treat_option?(input, history)
+        
+        if !length_or_option
+          length_or_option = treat_option?(input, history)
+        end
         
         if !length_or_option
           guesses = treat_guess(input, guesses, history)
@@ -120,30 +123,25 @@ module MasterMind
       end
       
       def average_string(top_ten_list, current_player)                                    # generates user's performance compared to average
-        difference_hash = difference(top_ten_list, current_player)
-        #time difference obtained
-        time_diff = difference_hash[:time]
-        #guess difference obtained
-        guess_diff = difference_hash[:guess]
+        time_diff, guess_diff = difference(top_ten_list, current_player)
         
         "That's %s %s and %s %s %s the average\n" % [time_convert(time_diff.abs), time_diff < 0 ? "slower" : "faster",
           guess_diff.abs, guess_diff.abs == 1 ? "guess" : "guesses", guess_diff < 0 ? "more" : "fewer"]
       end
       
       def difference(top_ten_list, current_player)
-        diff_hash = {}
-        diff_hash[:time] = 0
-        diff_hash[:guesses] = 0
+        total_time = 0
+        total_guess = 0
         
-        top_ten_list.inject(diff_hash){ |difference, player| 
-          difference[:time] += player.guesses
-          difference[:guesses] += player.time 
+        diff_hash = top_ten_list.each{ |player| 
+          total_time += player.guesses
+          total_guess += player.time 
         }
         
-        difference = {}
-        difference[:time] = diff_hash[:time] / current_player.time
-        difference[:guesses] = diff_hash[:guesses] / current_player.guesses
+        average_time = total_time / current_player.time
+        average_guess = total_guess / current_player.guesses
         
+        return average_time, average_guess
       end
       def wrong_guess(sequence, guesses, input, history)
         result = GameLogic.check_input(sequence, input)                                       # get results from input

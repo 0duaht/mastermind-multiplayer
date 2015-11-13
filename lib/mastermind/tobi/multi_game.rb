@@ -56,7 +56,10 @@ module MasterMind
         
         length_or_option = false
         length_or_option = invalid_length?(input)                            # invalid length for entry
-        length_or_option = treat_option?(input, history_hash[index])             # entry is a game option
+        
+        if !length_or_option
+          length_or_option = treat_option?(input, history_hash[index])             # entry is a game option
+        end
         
         if !length_or_option
           guesses_hash[index] = check_help(input, guesses_hash, history_hash, index)
