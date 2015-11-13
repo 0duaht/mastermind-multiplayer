@@ -2,4 +2,4 @@
 
 require 'mastermind_start'
 
-MasterMind.start
+MasterMind::Tobi.start
