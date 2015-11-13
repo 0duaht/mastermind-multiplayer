@@ -98,7 +98,38 @@ module MasterMind
             option_chosen = false
           end  
         end
-      end 
+      end
+      
+      def user_helper(level)
+        print UI::LEVEL_MESSAGE
+        option_chosen = false
+        
+        while !option_chosen
+          option_chosen = true                              # assume user selects valid level so as to quit loop
+          
+          input = gets.chomp.downcase
+          if level
+            case input                                        
+            when "b", "beginner" then return GameLogic::BEGINNER
+            when "i", "intermediate" then return GameLogic::INTERMEDIATE
+            when "a", "advanced" then return GameLogic::ADVANCED
+            else                                               # user selects an invalid level
+              print UI::INVALID_MESSAGE
+              option_chosen = false
+            end
+          else
+            case input                                        
+            when "y", "yes" then return true
+            when "n", "no" then return false
+            else                                               # user selects an invalid option
+              print UI::INVALID_MESSAGE
+              option_chosen = false
+            end  
+          end
+            
+        end
+      end
+       
     end 
   end
 end
