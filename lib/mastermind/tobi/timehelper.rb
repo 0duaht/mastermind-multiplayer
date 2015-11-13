@@ -5,8 +5,11 @@ module MasterMind
         hours = time_int / 3600
         minutes = (time_int % 3600) / 60
         seconds = (time_int % 3600) % 60
-        time_string = ''
-        
+        time_string = construct_string(hours, minutes, seconds)
+      end
+      
+      def construct_string(hours, minutes, seconds)
+        time_string = '' 
         if hours >= 1
           time_string << (hours.to_s + (time == 1 ? ' hour' :' hours'))
           time_string << ', ' if minutes > 0
@@ -20,7 +23,6 @@ module MasterMind
         if seconds >= 1
           time_string << (seconds.to_s + (seconds == 1 ? ' second' : ' seconds'))
         end
-        
       end
     end
   end
