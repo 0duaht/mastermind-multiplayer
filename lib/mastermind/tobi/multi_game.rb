@@ -32,19 +32,23 @@ module MasterMind
         total_guesses = 0                                       # total guesses of all players
         catch :player_wins do
           while total_guesses < (UI::GUESS_MAX * number)        # until all players have exhausted their guesses
-            for i in (1..number)                                # loop through to allow each player have a guess
+            for index in (1..number)                                # loop through to allow each player have a guess
               total_guesses += 1
-              last_guess = guesses_hash[i]                      # to store player's last guess
-              print "************"
-              print UI::PLAYER_MESSAGE % i
-              while guesses_hash[i] == last_guess               # to counter situations where user enters invalid input, guess would still be same
-                guesses_hash[i] = get_guess(history_hash, guesses_hash, i)
-                throw(:player_wins) if guesses_hash[i] == end_guess # if there is a win
-              end
+              multi_helper(guesses_hash, index, history_hash)
             end
           end
         end
         puts UI::SORRY_MULTI_MESSAGE % sequence.join.upcase if total_guesses == UI::GUESS_MAX * number # guesses exhausted with no winner
+      end
+      
+      def multi_helper(guesses_hash, index, history_hash)
+        last_guess = guesses_hash[index]                      # to store player's last guess
+        print "************"
+        print UI::PLAYER_MESSAGE % index
+        while guesses_hash[index] == last_guess               # to counter situations where user enters invalid input, guess would still be same
+          guesses_hash[index] = get_guess(history_hash, guesses_hash, index)
+          throw(:player_wins) if guesses_hash[index] == end_guess # if there is a win
+        end
       end
       
       def get_guess(history_hash, guesses_hash, index)
