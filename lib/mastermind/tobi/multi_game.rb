@@ -61,8 +61,8 @@ module MasterMind
         guesses_hash[index]
       end
       
-      def check_help(input, guesses_hash, history_hash, i)
-        treat_guess(input, guesses_hash[i], history_hash[i])  # player enters a guess
+      def check_help(input, guesses_hash, history_hash, index)
+        treat_guess(input, guesses_hash[index], history_hash[index])  # player enters a guess
       end
       
       def wrong_guess(sequence, guesses, input, history)
