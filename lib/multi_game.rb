@@ -57,7 +57,7 @@ class MultiPlayer < SinglePlayer
     result = GameLogic.check_input(sequence, input)                                       # get results from input
     history << GamePlay.new(input, result[:correct_elements], result[:correct_position])  # add game play to history
     
-    puts UI::INFO_MESSAGE % [input.upcase, result[:correct_elements], result[:correct_position]] if !hide_guess
+    puts UI::INFO_MESSAGE % [hide_guess ? "Your Guess" : input.upcase, result[:correct_elements], result[:correct_position]]
     puts UI::GUESSES_MESSAGE % [guesses, guesses > 1 ? "guesses" : "guess"]
     print UI::INPUT_PROMPT
   end
