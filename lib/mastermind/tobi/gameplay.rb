@@ -8,8 +8,7 @@ module MasterMind
       end
       
       def to_s
-        "#{entry} ::: #{correct_elements} correct #{correct_elements > 1 ? 'elements' : 'element'} ::: #{correct_positions} \
-    in correct #{correct_positions > 1 ? 'positions' : 'position'}"
+        "#{entry} ::: #{correct_elements} correct #{correct_elements > 1 ? 'elements' : 'element'} ::: #{correct_positions} in correct #{correct_positions > 1 ? 'positions' : 'position'}"
       end
     end
   end

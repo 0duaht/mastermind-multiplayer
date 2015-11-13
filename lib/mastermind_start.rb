@@ -5,13 +5,15 @@ require 'gamehelper'
 
 module MasterMind
   module Tobi
-    VERSION = 1.0
     extend MasterMind::Tobi::GameHelper
+    VERSION = 1.0
     
     def self.start
-      puts MasterMind::Tobi::UI::WELCOME_MESSAGE
-      print MasterMind::Tobi::UI::OPTIONS_MESSAGE + MasterMind::Tobi::UI::INPUT_PROMPT
+      puts UI::WELCOME_MESSAGE
+      print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
       user_choice
     end
   end
 end
+
+MasterMind::Tobi.start

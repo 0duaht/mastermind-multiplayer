@@ -5,7 +5,7 @@ require 'mastermind_start'
 
 Gem::Specification.new do |spec|
   spec.name          = "tobi-mastermind"
-  spec.version       = MasterMind::VERSION
+  spec.version       = MasterMind::Tobi::VERSION
   spec.authors       = ["Tobi Oduah"]
   spec.email         = ["tobi.oduah@andela.com"]
 
