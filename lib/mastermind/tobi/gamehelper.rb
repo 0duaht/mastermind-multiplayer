@@ -32,7 +32,7 @@ module MasterMind
       end
       
       def play_game
-        game_logic = GameLogic.new(ask_level); sequence = game_logic.generate_sequence
+        game_logic = GameLogic.new(user_helper(true)); sequence = game_logic.generate_sequence
         ask_mode(sequence, game_logic)
         puts ""
         print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
@@ -49,7 +49,7 @@ module MasterMind
           input = gets.chomp.downcase
           case input
           when "s", "single" then SinglePlayer.new(sequence, game_logic).start_game
-          when "m", "multi" then MultiPlayer.new(sequence, game_logic, hide_guess?).start_game
+          when "m", "multi" then MultiPlayer.new(sequence, game_logic, user_helper(false)).start_game
           else 
             print UI::INVALID_MESSAGE
             option_chosen = false
@@ -58,47 +58,47 @@ module MasterMind
         
       end
       
-      def hide_guess?
-        print UI::PASSWORD_MESSAGE
-        option_chosen = false
-        
-        while !option_chosen
-          option_chosen = true                              # assume user selects valid option so as to quit loop
-          
-          input = gets.chomp.downcase
-          case input                                        
-          when "y", "yes" then return true
-          when "n", "no" then return false
-          else                                               # user selects an invalid option
-            print UI::INVALID_MESSAGE
-            option_chosen = false
-          end  
-        end
-      end
+      # def hide_guess?
+        # print UI::PASSWORD_MESSAGE
+        # option_chosen = false
+#         
+        # while !option_chosen
+          # option_chosen = true                              # assume user selects valid option so as to quit loop
+#           
+          # input = gets.chomp.downcase
+          # case input                                        
+          # when "y", "yes" then return true
+          # when "n", "no" then return false
+          # else                                               # user selects an invalid option
+            # print UI::INVALID_MESSAGE
+            # option_chosen = false
+          # end  
+        # end
+      # end
       
       def print_help
         puts UI::HELP_MESSAGE
         print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
       end
       
-      def ask_level
-        print UI::LEVEL_MESSAGE
-        option_chosen = false
-        
-        while !option_chosen
-          option_chosen = true                              # assume user selects valid level so as to quit loop
-          
-          input = gets.chomp.downcase
-          case input                                        
-          when "b", "beginner" then return GameLogic::BEGINNER
-          when "i", "intermediate" then return GameLogic::INTERMEDIATE
-          when "a", "advanced" then return GameLogic::ADVANCED
-          else                                               # user selects an invalid level
-            print UI::INVALID_MESSAGE
-            option_chosen = false
-          end  
-        end
-      end
+      # def ask_level
+        # print UI::LEVEL_MESSAGE
+        # option_chosen = false
+#         
+        # while !option_chosen
+          # option_chosen = true                              # assume user selects valid level so as to quit loop
+#           
+          # input = gets.chomp.downcase
+          # case input                                        
+          # when "b", "beginner" then return GameLogic::BEGINNER
+          # when "i", "intermediate" then return GameLogic::INTERMEDIATE
+          # when "a", "advanced" then return GameLogic::ADVANCED
+          # else                                               # user selects an invalid level
+            # print UI::INVALID_MESSAGE
+            # option_chosen = false
+          # end  
+        # end
+      # end
       
       def user_helper(level)
         print UI::LEVEL_MESSAGE
