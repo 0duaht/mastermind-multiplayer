@@ -47,26 +47,19 @@ module MasterMind
         puts UI::SORRY_MULTI_MESSAGE % sequence.join.upcase if total_guesses == UI::GUESS_MAX * number # guesses exhausted with no winner
       end
       
-      def get_guess(history_hash, guesses_hash, index)
-        if hide_guess
-          input = STDIN.noecho(&:gets).chomp
-        else
-          input = gets.chomp
+      def get_guess(history_hash, guesses_hash, i)
+        input = hide_guess ? STDIN.noecho(&:gets).chomp : gets.chomp
+        
+        length_or_option = false
+        length_or_option = invalid_length?(input)                            # invalid length for entry
+        length_or_option = treat_option?(input, history_hash[i])             # entry is a game option
+        
+        if !length_or_option
+          guesses_hash[i] = treat_guess(input, guesses_hash[i], history_hash[i])  # player enters a guess
         end
         
-        guesses_hash[index] = length_option_check(input, guesses_hash, history_hash, index)
+        guesses_hash[i]
       end
-      
-      def length_option_check(input, guesses_hash, history_hash, index)
-        confirm_guess = false
-        confirm_guess = invalid_length?(input)                            # invalid length for entry
-        confirm_guess = treat_option?(input, history_hash[index])             # entry is a game option
-        
-        if !confirm_guess
-          guesses_hash[index] = treat_guess(input, guesses_hash[index], history_hash[index])  # player enters a guess
-          
-        guesses_hash[index]
-      end      
       
       def wrong_guess(sequence, guesses, input, history)
         result = GameLogic.check_input(sequence, input)                                       # get results from input
