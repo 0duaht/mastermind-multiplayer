@@ -11,11 +11,11 @@ module GameHelper
       option_chosen = true                              # assume user selects valid option so as to quit loop
       
       input = gets.chomp.downcase
-      option_chosen = validate_input(input)
+      option_chosen = validate_input?(input)
     end
   end
   
-  def validate_input(input)
+  def validate_input?(input)
     case input
       when "p", "play" then play_game
       when "r", "read"

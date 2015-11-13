@@ -47,8 +47,8 @@ class MultiPlayer < SinglePlayer
   
   def get_guess(history_hash, guesses_hash, i)
     input = hide_guess ? STDIN.noecho(&:gets).chomp : gets.chomp
-    return guesses_hash[i] if invalid_length(input)                            # invalid length for entry
-    return guesses_hash[i] if treat_option(input, history_hash[i])             # entry is a game option
+    return guesses_hash[i] if invalid_length?(input)                            # invalid length for entry
+    return guesses_hash[i] if treat_option?(input, history_hash[i])             # entry is a game option
     guesses_hash[i] = treat_guess(input, guesses_hash[i], history_hash[i])  # player enters a guess
     guesses_hash[i]
   end

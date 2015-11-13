@@ -33,15 +33,15 @@ class SinglePlayer
     # allow the user guess up to twelve times before ending game
     while guesses < UI::GUESS_MAX
       input = gets.chomp.downcase
-      next if invalid_length(input)
-      next if treat_option(input, history)
+      next if invalid_length?(input)
+      next if treat_option?(input, history)
       guesses = treat_guess(input, guesses, history)
     end
     puts UI::SORRY_SINGLE_MESSAGE % sequence.join.upcase if guesses == UI::GUESS_MAX   
   end
   
   # check if user's guess is longer or fewer than the required length
-  def invalid_length(input)   
+  def invalid_length?(input)   
     if input.length < game_logic.length && !(ALLOWED.include?(input))
       print UI::INPUT_SHORT_MESSAGE
       return true
@@ -55,7 +55,7 @@ class SinglePlayer
   end
   
   # check if user selects an option
-  def treat_option(input, history)
+  def treat_option?(input, history)
     case input
     when "h", "history" then print_history(history)
     when "q", "quit" then exit(0)
@@ -128,12 +128,12 @@ class SinglePlayer
     current_player = Player.new(name, sequence, time, guesses)  # create new player object
     
     # write player object to file if file does not exist, or verify whether to add record from user, and write if it exists
-    File.open(UI::DB_STORE, 'a'){|file| file.write(YAML.dump(current_player))} if user_permits_store
+    File.open(UI::DB_STORE, 'a'){|file| file.write(YAML.dump(current_player))} if user_permits_store?
      
     current_player
   end
   
-  def user_permits_store                    # confirm from user to add record to top-scores if file exists
+  def user_permits_store?                    # confirm from user to add record to top-scores if file exists
     return true if !File.exist?(UI::DB_STORE)    # if file does not exist, return true
     print UI::OVERWRITE_MESSAGE
     print UI::INPUT_PROMPT
