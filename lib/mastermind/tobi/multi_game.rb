@@ -57,7 +57,7 @@ module MasterMind
         guesses_hash[index] = length_option_check(input, guesses_hash, history_hash, index)
       end
       
-      def length_option_check
+      def length_option_check(input, guesses_hash, history_hash, index)
         confirm_guess = false
         confirm_guess = invalid_length?(input)                            # invalid length for entry
         confirm_guess = treat_option?(input, history_hash[index])             # entry is a game option
