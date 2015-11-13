@@ -1,5 +1,5 @@
-require 'mastermind/ui'
-require 'mastermind/gamehelper'
+require 'ui'
+require 'gamehelper'
 
 module MasterMind
   VERSION = 1.0

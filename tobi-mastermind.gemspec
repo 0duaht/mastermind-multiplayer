@@ -1,6 +1,8 @@
 # coding: utf-8
-lib = File.expand_path('./lib', __FILE__)
+lib = File.expand_path('../lib', __FILE__)
+lib_master = File.expand_path('../lib/mastermind', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$LOAD_PATH.unshift(lib_master) unless $LOAD_PATH.include?(lib_master)
 require 'mastermind'
 
 Gem::Specification.new do |spec|
