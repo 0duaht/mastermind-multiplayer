@@ -120,23 +120,31 @@ module MasterMind
       end
       
       def average_string(top_ten_list, current_player)                                    # generates user's performance compared to average
+        difference_hash = difference(top_ten_list, current_player)
         #time difference obtained
-        time_diff = time_difference(top_ten_list, current_player)
+        time_diff = difference_hash[:time]
         #guess difference obtained
-        guess_diff = guess_difference(top_ten_list, current_player)
+        guess_diff = difference_hash[:guess]
         
         "That's %s %s and %s %s %s the average\n" % [time_convert(time_diff.abs), time_diff < 0 ? "slower" : "faster",
           guess_diff.abs, guess_diff.abs == 1 ? "guess" : "guesses", guess_diff < 0 ? "more" : "fewer"]
       end
       
-      def time_difference(top_ten_list, current_player)
-        (top_ten_list.inject(0){ |sum, player| sum += player.time } / top_ten_list.length.to_f).round - current_player.time
+      def difference(top_ten_list, current_player)
+        diff_hash = {}
+        diff_hash[:time] = 0
+        diff_hash[:guesses] = 0
+        
+        top_ten_list.inject(diff_hash){ |difference, player| 
+          difference[:time] += player.guesses
+          difference[:guesses] += player.time 
+        }
+        
+        difference = {}
+        difference[:time] = diff_hash[:time] / current_player.time
+        difference[:guesses] = diff_hash[:guesses] / current_player.guesses
+        
       end
-      
-      def guess_difference(top_ten_list, current_player)
-        (top_ten_list.inject(0){ |sum, player| sum += player.guesses } / top_ten_list.length.to_f).round - current_player.guesses
-      end
-      
       def wrong_guess(sequence, guesses, input, history)
         result = GameLogic.check_input(sequence, input)                                       # get results from input
         history << GamePlay.new(input, result[:correct_elements], result[:correct_position])  # add game play to history
