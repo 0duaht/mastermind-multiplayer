@@ -65,7 +65,7 @@ module MasterMind
         if !confirm_guess
           guesses_hash[index] = treat_guess(input, guesses_hash[index], history_hash[index])  # player enters a guess
           
-        guess_hash[index]
+        guesses_hash[index]
       end      
       
       def wrong_guess(sequence, guesses, input, history)
