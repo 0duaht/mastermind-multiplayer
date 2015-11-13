@@ -1,11 +1,11 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('./lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mastermind'
 
 Gem::Specification.new do |spec|
   spec.name          = "tobi-mastermind"
-  #spec.version       = Mastermind::VERSION
+  spec.version       = MasterMind::VERSION
   spec.authors       = ["Tobi Oduah"]
   spec.email         = ["tobi.oduah@andela.com"]
 
