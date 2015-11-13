@@ -55,10 +55,12 @@ module MasterMind
         length_or_option = treat_option?(input, history_hash[i])             # entry is a game option
         
         if !length_or_option
-          guesses_hash[i] = treat_guess(input, guesses_hash[i], history_hash[i])  # player enters a guess
+          guesses_hash[i] = check_help(input, guesses_hash, history_hash, i)
         end
-        
-        guesses_hash[i]
+      end
+      
+      def check_help(input, guesses_hash, history_hash, i)
+        treat_guess(input, guesses_hash[i], history_hash[i])  # player enters a guess
       end
       
       def wrong_guess(sequence, guesses, input, history)
