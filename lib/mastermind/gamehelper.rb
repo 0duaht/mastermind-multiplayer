@@ -1,4 +1,4 @@
-require 'ui'
+require 'mastermind/ui'
 require 'logic'
 require 'single_game'
 require 'multi_game'

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'mastermind'
+require 'mastermind_start'
 
 MasterMind.start
