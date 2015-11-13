@@ -5,7 +5,7 @@ require 'gamehelper'
 
 module MasterMind
   module Tobi
-    extend MasterMind::Tobi::GameHelper
+    extend GameHelper
     VERSION = 1.0
     
     def self.start
@@ -15,5 +15,3 @@ module MasterMind
     end
   end
 end
-
-#MasterMind::Tobi.start
