@@ -34,12 +34,20 @@ module MasterMind
         
         # allow the user guess up to twelve times before ending game
         while guesses < UI::GUESS_MAX
-          input = gets.chomp.downcase
-          next if invalid_length?(input)
-          next if treat_option?(input, history)
-          guesses = treat_guess(input, guesses, history)
+          guesses = process_input(input, guesses, history)
         end
         puts UI::SORRY_SINGLE_MESSAGE % sequence.join.upcase if guesses == UI::GUESS_MAX   
+      end
+      
+      def process_input(input, guesses, history)
+        input = gets.chomp.downcase
+        length_or_option = false
+        
+        length_or_option = invalid_length?(input)
+        length_or_option = treat_option?(input, history)
+        
+        if !length_or_option
+          guesses = treat_guess(input, guesses, history)
       end
       
       # check if user's guess is longer or fewer than the required length
