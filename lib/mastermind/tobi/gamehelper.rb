@@ -49,7 +49,10 @@ module MasterMind
           input = gets.chomp.downcase
           case input
           when "s", "single" then SinglePlayer.new(sequence, game_logic).start_game
-          when "m", "multi" then MultiPlayer.new(sequence, game_logic, MasterMind::Tobi::GameHelper.yes_or_no?).start_game
+          when "m", "multi"
+            print UI::PASSWORD_MESSAGE
+            hide_guess = MasterMind::Tobi::GameHelper.yes_or_no?
+            MultiPlayer.new(sequence, game_logic, hide_guess).start_game
           else 
             print UI::INVALID_MESSAGE
             option_chosen = false
@@ -59,7 +62,6 @@ module MasterMind
       end
       
       def self.yes_or_no?
-        print UI::PASSWORD_MESSAGE
         option_chosen = false
         
         while !option_chosen

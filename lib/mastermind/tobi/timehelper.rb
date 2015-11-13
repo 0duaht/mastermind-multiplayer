@@ -22,6 +22,8 @@ module MasterMind
          
         if seconds >= 1
           time_string << (seconds.to_s + (seconds == 1 ? ' second' : ' seconds'))
+        elsif seconds == 0 && time_string == ''
+          time_string << '0 seconds'
         end
       end
     end
