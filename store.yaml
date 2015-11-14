@@ -106,3 +106,31 @@ sequence:
 - r
 time: 3
 guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Dsaf
+sequence:
+- g
+- r
+- b
+- b
+time: 2
+guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Tiwe
+sequence:
+- r
+- b
+- b
+- y
+- g
+time: 5
+guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Utow
+sequence:
+- b
+- g
+- g
+- b
+time: 9
+guesses: 2

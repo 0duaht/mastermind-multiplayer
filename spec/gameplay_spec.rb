@@ -1,12 +1,12 @@
-require_relative 'spec_helper'
+require 'spec_helper'
 
-describe GamePlay do
+describe "GamePlay" do
   before do
     allow($stdout).to receive(:write)
   end
   
   subject do
-    GamePlay.new("rggy", 2, 1)
+    MasterMind::Tobi::GamePlay.new("rggy", 2, 1)
   end
   
   it "prints out appropriately" do

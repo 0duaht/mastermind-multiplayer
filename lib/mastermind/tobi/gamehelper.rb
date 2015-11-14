@@ -5,7 +5,7 @@ require 'multi_game'
 
 module MasterMind
   module Tobi
-    module GameHelper
+    class GameHelper
       def user_choice
         option_chosen = false
         

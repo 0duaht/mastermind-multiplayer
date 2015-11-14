@@ -1,11 +1,14 @@
-require_relative 'spec_helper'
+require 'spec_helper'
 
-describe GameLogic do
+describe "GameLogic" do
   before do
     allow($stdout).to receive(:write)
   end
+  
+  let(:test_subj) {MasterMind::Tobi::GameLogic}
+  
   subject do
-    [GameLogic.new(0), GameLogic.new(1), GameLogic.new(2)]  
+    [test_subj.new(0), test_subj.new(1), test_subj.new(2)]  
   end
   let(:random) { rand(3) }
   
@@ -35,7 +38,7 @@ describe GameLogic do
   
   describe "#check_input" do
     it "calculates number of correct elements and correct positions" do
-      expect(GameLogic.check_input(['r', 'r', 'y', 'b', 'v'], 'rvoby')).to eq({correct_elements: 4, correct_position: 2}) 
+      expect(test_subj.check_input(['r', 'r', 'y', 'b', 'v'], 'rvoby')).to eq({correct_elements: 4, correct_position: 2}) 
     end
   end
 end
