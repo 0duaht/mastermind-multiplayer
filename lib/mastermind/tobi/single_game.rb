@@ -29,8 +29,8 @@ module MasterMind
       
       # generate game sequence and start game play
       def start_game
-        #print UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
-        #print UI::INPUT_PROMPT
+        print UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
+        print UI::INPUT_PROMPT
         
         # allow the user guess up to twelve times before ending game
         guesses = 0
