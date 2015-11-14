@@ -21,7 +21,7 @@ module MasterMind
         }
         
         average_time = (total_time.to_f/top_ten_list.length).round - current_player.time
-        average_guess = (total_guess.to_f/top_ten_list.length).round current_player.guesses
+        average_guess = (total_guess.to_f/top_ten_list.length).round - current_player.guesses
         
         return average_time, average_guess
       end

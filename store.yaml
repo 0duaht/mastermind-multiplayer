@@ -97,3 +97,12 @@ sequence:
 - b
 time: 5
 guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Dsur
+sequence:
+- g
+- r
+- g
+- r
+time: 3
+guesses: 1
