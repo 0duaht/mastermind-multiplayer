@@ -43,6 +43,23 @@ describe "Single Player" do
       it "detects when user tries an invalid option" do
         expect(subject.treat_option?('hack', [])).to eql(false)
       end
+      
+      it "detects when user tries to quit" do
+        expect{subject.treat_option?('q', [])}.to raise_error SystemExit
+      end
+    end
+  end
+  
+  describe "SinglePlayer#treat_guess" do
+    let(:end_guess) {13}
+    it "confirms when user guess is right" do
+      allow(subject).to receive(:right_guess).and_return(nil)
+      expect(subject.treat_guess('rgbyg', 4, [])).to eql(end_guess)
+    end
+    
+    it "confirms when user guess is wrong" do
+      allow(subject).to receive(:_guess).and_return(nil)
+      expect(subject.treat_guess('rgby', 5, [])).to eql(6)
     end
   end
 end
