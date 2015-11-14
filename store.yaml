@@ -88,3 +88,12 @@ sequence:
 - g
 time: 2
 guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Uio
+sequence:
+- b
+- g
+- r
+- b
+time: 5
+guesses: 1
