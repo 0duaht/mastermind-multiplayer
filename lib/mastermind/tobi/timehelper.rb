@@ -11,7 +11,7 @@ module MasterMind
       def construct_string(hours, minutes, seconds)
         time_string = '' 
         if hours >= 1
-          time_string << (hours.to_s + (time == 1 ? ' hour' :' hours'))
+          time_string << (hours.to_s + (hours == 1 ? ' hour' :' hours'))
           time_string << ', ' if minutes > 0
         end    
          
@@ -25,6 +25,8 @@ module MasterMind
         elsif seconds == 0 && time_string == ''
           time_string << '0 seconds'
         end
+        
+        time_string
       end
     end
   end
