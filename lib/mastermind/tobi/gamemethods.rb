@@ -20,6 +20,10 @@ module MasterMind
           total_guess += player.guesses 
         }
         
+        puts "total time - " + total_time.to_s
+        puts "total gyess - " + total_guess.to_s
+        
+        
         average_time = total_time / current_player.time
         average_guess = total_guess / current_player.guesses
         

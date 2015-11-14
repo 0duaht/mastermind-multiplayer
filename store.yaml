@@ -79,3 +79,12 @@ sequence:
 - g
 time: 3
 guesses: 2
+--- !ruby/object:MasterMind::Tobi::Player
+name: Tu
+sequence:
+- b
+- g
+- g
+- g
+time: 2
+guesses: 1
