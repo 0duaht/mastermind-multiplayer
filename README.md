@@ -5,7 +5,8 @@ See http://https://en.wikipedia.org/wiki/Mastermind for details.
 
 ## Installation
 
-Run: 
+Run
+
     $ gem install tobi-mastermind
 
 After installation is completed, run 
