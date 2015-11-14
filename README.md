@@ -1,5 +1,7 @@
 # Mastermind
 
+<a href="https://codeclimate.com/repos/564635d51787d724da000013/feed"><img src="https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/gpa.svg" /></a>
+
 An implementation of the classic MasterMind game in Ruby.
 See http://https://en.wikipedia.org/wiki/Mastermind for details.
 
@@ -46,6 +48,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-## Code Climate Badge
-<a href="https://codeclimate.com/repos/564635d51787d724da000013/feed"><img src="https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/gpa.svg" /></a>
