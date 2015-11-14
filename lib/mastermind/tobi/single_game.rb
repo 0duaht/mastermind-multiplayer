@@ -8,7 +8,7 @@ require 'gamemethods'
 module MasterMind
   module Tobi
     class SinglePlayer
-      extend GameMethods
+      include GameMethods
       include TimeHelper
       
       attr_reader :start_time
