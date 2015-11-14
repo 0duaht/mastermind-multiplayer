@@ -16,8 +16,8 @@ module MasterMind
         total_guess = 0
         
         diff_hash = top_ten_list.each{ |player| 
-          total_time += player.guesses
-          total_guess += player.time 
+          total_time += player.time
+          total_guess += player.guesses 
         }
         
         average_time = total_time / current_player.time
