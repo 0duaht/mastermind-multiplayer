@@ -1,0 +1,72 @@
+--- !ruby/object:MasterMind::Tobi::Player
+name: Asdf
+sequence:
+- g
+- r
+- y
+- b
+time: 3
+guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Asdfe
+sequence:
+- g
+- r
+- r
+- b
+time: 3
+guesses: 2
+--- !ruby/object:MasterMind::Tobi::Player
+name: Asdru
+sequence:
+- b
+- g
+- g
+- y
+time: 5
+guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Asdfdr
+sequence:
+- r
+- b
+- r
+- r
+time: 4
+guesses: 2
+--- !ruby/object:MasterMind::Tobi::Player
+name: Sadfar
+sequence:
+- g
+- r
+- r
+- r
+time: 4
+guesses: 3
+--- !ruby/object:MasterMind::Tobi::Player
+name: Asrei
+sequence:
+- g
+- y
+- b
+- g
+time: 3
+guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Adioew
+sequence:
+- y
+- y
+- y
+- r
+time: 5
+guesses: 2
+--- !ruby/object:MasterMind::Tobi::Player
+name: Asfir
+sequence:
+- g
+- r
+- b
+- b
+time: 5
+guesses: 2
