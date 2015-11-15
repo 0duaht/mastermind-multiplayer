@@ -39,6 +39,7 @@ module MasterMind
           end
         end
         puts UI::SORRY_MULTI_MESSAGE % sequence.join.upcase if total_guesses == UI::GUESS_MAX * number # guesses exhausted with no winner
+        total_guesses
       end
       
       def multi_helper(guesses_hash, index, history_hash)

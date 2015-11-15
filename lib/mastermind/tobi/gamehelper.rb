@@ -51,7 +51,7 @@ module MasterMind
           when "s", "single" then SinglePlayer.new(sequence, game_logic).start_game
           when "m", "multi"
             print UI::PASSWORD_MESSAGE
-            hide_guess = MasterMind::Tobi::GameHelper.yes_or_no?
+            hide_guess = MasterMind::Tobi::GameMethods.new.yes_or_no?
             MultiPlayer.new(sequence, game_logic, hide_guess).start_game
           else 
             print UI::INVALID_MESSAGE

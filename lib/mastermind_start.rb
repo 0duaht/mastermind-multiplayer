@@ -5,13 +5,13 @@ require 'gamehelper'
 
 module MasterMind
   module Tobi
-    extend GameHelper
     VERSION = 1.0
     
     def self.start
+      gamehelper = GameHelper.new
       puts UI::WELCOME_MESSAGE
       print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
-      user_choice
+      gamehelper.user_choice
     end
   end
 end
