@@ -81,13 +81,8 @@ module MasterMind
         treat_guess(input, guesses_hash[index], history_hash[index])  # player enters a guess
       end
       
-      def right_guess(start_time, sequence, guesses)
-        time_elapsed = time_hash[current_index].to_i + (Time.now - start_time).to_i                                       # time used by user in seconds
-        current_player = store_game(sequence, guesses, time_elapsed)                      # store user data to top-scores file
-        
-        puts UI::CONGRATS_MESSAGE % [current_player.name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", 
-          time_convert(time_elapsed) << '.']
-        print_top_ten(current_player)
+      def get_time(start_time)
+        time_hash[current_index].to_i + (Time.now - start_time).to_i                    # time used by user in seconds
       end
       
       def wrong_guess(sequence, guesses, input, history)
