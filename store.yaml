@@ -1315,3 +1315,21 @@ sequence:
 - g
 time: 0
 guesses: 5
+--- !ruby/object:MasterMind::Tobi::Player
+name: Tobi
+sequence:
+- g
+- r
+- r
+- r
+time: 25
+guesses: 2
+--- !ruby/object:MasterMind::Tobi::Player
+name: Tue
+sequence:
+- r
+- g
+- y
+- g
+time: 5
+guesses: 2
