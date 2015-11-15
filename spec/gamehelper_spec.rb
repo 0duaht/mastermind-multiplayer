@@ -8,6 +8,7 @@ describe "GameHelper" do
   let(:intermediate) {1}
   let(:advanced) {2}
   let(:num_of_players) {2}
+  let(:max_guess) {12}
   
   subject do
     MasterMind::Tobi::GameHelper.new
@@ -47,7 +48,7 @@ describe "GameHelper" do
           response = 'b'
         elsif @counter == 5
           response = 's'
-        elsif @counter >= 6 && @counter < 19
+        elsif @counter >= 6 && @counter < (max_guess + 1 + 6)
           response = 'JJJJ'
         elsif @counter >= 19
           response = 'q'
@@ -70,12 +71,14 @@ describe "GameHelper" do
         elsif @counter == 2
           response = 'b'
         elsif @counter == 3
-          response = 'm'
+          response = 'other'
         elsif @counter == 4
-          response = 'no'
+          response = 'm'
         elsif @counter == 5
+          response = 'no'
+        elsif @counter == 6
           response = num_of_players.to_s
-        elsif @counter > 5 && @counter < 30
+        elsif @counter > 7 && @counter < (max_guess*2 + 1 + 7)
           response = 'JJJJJ'
         else
           response = 'q'
