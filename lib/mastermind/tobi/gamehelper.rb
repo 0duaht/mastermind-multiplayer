@@ -5,7 +5,7 @@ require 'multi_game'
 
 module MasterMind
   module Tobi
-    module GameHelper
+    class GameHelper
       def user_choice
         option_chosen = false
         
@@ -59,23 +59,6 @@ module MasterMind
           end
         end
         
-      end
-      
-      def self.yes_or_no?
-        option_chosen = false
-        
-        while !option_chosen
-          option_chosen = true                              # assume user selects valid option so as to quit loop
-          
-          input = gets.chomp.downcase
-          case input                                        
-          when "y", "yes" then return true
-          when "n", "no" then return false
-          else                                               # user selects an invalid option
-            print UI::INVALID_MESSAGE
-            option_chosen = false
-          end  
-        end
       end
       
       def print_help
