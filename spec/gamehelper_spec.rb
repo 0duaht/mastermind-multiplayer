@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "GameHelper" do
   before do
-    #allow($stdout).to receive(:write)
+    allow($stdout).to receive(:write)
   end
   
   subject do
