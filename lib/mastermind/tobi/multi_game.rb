@@ -90,6 +90,18 @@ module MasterMind
         right_guess_helper(time_elapased, sequence, guesses)
       end
       
+      def treat_guess(input, guesses, history)
+        guesses += 1
+        if input == sequence.join                         # right guess entered
+          right_guess(start_time, sequence, guesses)
+          guesses = end_guess                             # sentinel value to end guess loop
+        else
+          wrong_guess(sequence, guesses, input, history)  # wrong guess entered
+        end
+        
+        return guesses
+      end
+      
       def wrong_guess(sequence, guesses, input, history)
         result = GameLogic.check_input(sequence, input)                                       # get results from input
         history << GamePlay.new(input, result[:correct_elements], result[:correct_position])  # add game play to history
