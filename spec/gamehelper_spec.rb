@@ -46,7 +46,9 @@ describe "GameHelper" do
           response = 'b'
         elsif @counter == 5
           response = 's'
-        elsif @counter == 6
+        elsif @counter >= 6 && @counter < 19
+          response = 'JJJJ'
+        elsif @counter >= 19
           response = 'q'
         end
         @counter += 1
