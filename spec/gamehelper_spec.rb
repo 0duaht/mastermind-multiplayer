@@ -21,12 +21,16 @@ describe "GameHelper" do
         response = ''
         
         if @counter == 0
-          response = 'p'
+          response = 'r'
         elsif @counter == 1
-          response = 'b'
+          response = 'er'
         elsif @counter == 2
-          response = 's'
+          response = 'p'
         elsif @counter == 3
+          response = 'b'
+        elsif @counter == 4
+          response = 's'
+        elsif @counter == 5
           response = 'q'
         end
         @counter += 1

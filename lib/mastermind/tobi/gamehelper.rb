@@ -28,7 +28,6 @@ module MasterMind
             print UI::INVALID_MESSAGE
             return false
         end
-        return true
       end
       
       def play_game
