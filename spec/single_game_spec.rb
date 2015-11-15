@@ -87,7 +87,7 @@ describe "Single Player" do
       expect(subject.user_permits_store?).to eql(true)
       allow(subject).to receive(:gets).and_return("no")
       expect(subject.user_permits_store?).to eql(false)
-      allow(subject).to receive(:gets).and_return("afd")
+      allow(subject).to receive(:gets).and_return("afd\n")
       allow(subject).to receive(:gets).and_return("no")
       expect(subject.user_permits_store?).to eql(false)
     end
