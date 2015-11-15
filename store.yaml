@@ -143,3 +143,22 @@ sequence:
 - g
 time: 7
 guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Diser
+sequence:
+- r
+- r
+- b
+- y
+time: 4
+guesses: 2
+--- !ruby/object:MasterMind::Tobi::Player
+name: James
+sequence:
+- r
+- g
+- b
+- y
+- g
+time: 0
+guesses: 5

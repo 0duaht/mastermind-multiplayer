@@ -53,7 +53,8 @@ describe "Single Player" do
   describe "SinglePlayer#treat_guess" do
     let(:end_guess) {13}
     it "confirms when user guess is right" do
-      allow(subject).to receive(:right_guess).and_return(nil)
+      allow(subject).to receive(:gets).and_return('James')
+      allow(subject).to receive(:user_permits_store?).and_return(true)
       expect(subject.treat_guess('rgbyg', 4, [])).to eql(end_guess)
     end
     
