@@ -81,25 +81,8 @@ module MasterMind
         treat_guess(input, guesses_hash[index], history_hash[index])  # player enters a guess
       end
       
-      def get_time_neo(start_time)
+      def get_time(start_time)
         time_hash[current_index].to_i + (Time.now - start_time).to_i                    # time used by user in seconds
-      end
-      
-      def right_guess(start_time, sequence, guesses)
-        time_elapsed = get_time_neo(start_time)                                       # time used by user in seconds
-        right_guess_helper(time_elapased, sequence, guesses)
-      end
-      
-      def treat_guess(input, guesses, history)
-        guesses += 1
-        if input == sequence.join                         # right guess entered
-          right_guess(start_time, sequence, guesses)
-          guesses = end_guess                             # sentinel value to end guess loop
-        else
-          wrong_guess(sequence, guesses, input, history)  # wrong guess entered
-        end
-        
-        return guesses
       end
       
       def wrong_guess(sequence, guesses, input, history)

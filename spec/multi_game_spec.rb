@@ -47,17 +47,19 @@ describe "Multi Player" do
           response = 'two'
         elsif @counter == 1
           response = num_of_players.to_s
-        elsif @counter == 1
-          response = 'had'
         elsif @counter == 2
-          response = 'h'
-        else
-          response = 'RGBYG'
+          response = 'rgbyg'
+        elsif @counter == 3
+          response = 'Tobi'
+        elsif @counter == 4
+          response = 'yes'
+        elsif @counter == 5
+          response = 'q'
         end
         @counter+= 1
         response
       }
-      expect(subject.start_game).to eql(max_guess)
+      expect(subject.start_game).to eql(1)
     end
   end
 end
