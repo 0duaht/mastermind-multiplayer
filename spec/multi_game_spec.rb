@@ -17,26 +17,26 @@ describe "Multi Player" do
     end
   end
   
-  describe "MultiPlayer#start_game" do
-    it "gives each player twelve trials to guess right number" do
-      subject.stub(:gets) {
-        @counter ||= 0
-        response = ''
-        if @counter == 0
-          response = 'two'
-        elsif @counter == 1
-          response = num_of_players.to_s
-        elsif @counter == 1
-          response = 'had'
-        elsif @counter == 2
-          response = 'h'
-        else
-          response = 'JJJJJ'
-        end
-        @counter+= 1
-        response
-      }
-      expect(subject.start_game).to eql(max_guess)
-    end
-  end
+  # describe "MultiPlayer#start_game" do
+    # it "gives each player twelve trials to guess right number" do
+      # subject.stub(:gets) {
+        # @counter ||= 0
+        # response = ''
+        # if @counter == 0
+          # response = 'two'
+        # elsif @counter == 1
+          # response = num_of_players.to_s
+        # elsif @counter == 1
+          # response = 'had'
+        # elsif @counter == 2
+          # response = 'h'
+        # else
+          # response = 'JJJJJ'
+        # end
+        # @counter+= 1
+        # response
+      # }
+      # expect(subject.start_game).to eql(max_guess)
+    # end
+  # end
 end
