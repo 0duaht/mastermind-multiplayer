@@ -97,6 +97,10 @@ module MasterMind
       
       def right_guess(start_time, sequence, guesses)
         time_elapsed = get_time(start_time)                                       # time used by user in seconds
+        right_guess_helper(time_elapased, sequence, guesses)
+      end
+      
+      def right_guess_helper(time_elapsed, sequence, guesses)
         current_player = store_game(sequence, guesses, time_elapsed)                      # store user data to top-scores file
         
         puts UI::CONGRATS_MESSAGE % [current_player.name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", 
