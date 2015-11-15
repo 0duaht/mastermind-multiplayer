@@ -77,4 +77,11 @@ describe "Single Player" do
       expect(subject.start_game).to eql(max_guess)
     end
   end
+  
+  describe "SinglePlayer#user_permits_store?" do
+    it "stores when user agress to store" do
+      allow(subject).to receive(:gets).and_return("yes")
+      expect(subject.user_permits_store?).to eql(true)
+    end
+  end
 end

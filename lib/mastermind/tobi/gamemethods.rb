@@ -63,7 +63,7 @@ module MasterMind
         print UI::INPUT_PROMPT
         option_chosen = false
         
-        return MasterMind::Tobi::GameHelper.yes_or_no?
+        return yes_or_no?
       end
       
       def get_name
@@ -75,6 +75,23 @@ module MasterMind
         end
         
         name
+      end
+      
+      def yes_or_no?
+        option_chosen = false
+        
+        while !option_chosen
+          option_chosen = true                              # assume user selects valid option so as to quit loop
+          
+          input = gets.chomp.downcase
+          case input                                        
+          when "y", "yes" then return true
+          when "n", "no" then return false
+          else                                               # user selects an invalid option
+            print UI::INVALID_MESSAGE
+            option_chosen = false
+          end  
+        end
       end
          
       def print_history(history)
