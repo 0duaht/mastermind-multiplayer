@@ -97,7 +97,7 @@ module MasterMind
       
       def right_guess(start_time, sequence, guesses)
         time_elapsed = get_time(start_time)                                       # time used by user in seconds
-        right_guess_helper(time_elapased, sequence, guesses)
+        right_guess_helper(time_elapsed, sequence, guesses)
       end
       
       def right_guess_helper(time_elapsed, sequence, guesses)
