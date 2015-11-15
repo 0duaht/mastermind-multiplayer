@@ -4,6 +4,9 @@ describe "GameHelper" do
   before do
     allow($stdout).to receive(:write)
   end
+  let(:beginner) {0}
+  let(:intermediate) {1}
+  let(:advanced) {2}
   
   subject do
     MasterMind::Tobi::GameHelper.new
@@ -13,6 +16,11 @@ describe "GameHelper" do
     it "exits when user chooses to" do
       allow(subject).to receive(:gets).and_return('q')
       expect{subject.user_choice}.to raise_error SystemExit
+    end
+    
+    it "processes user's level correctly" do
+      allow(subject).to receive(:gets).and_return('i')
+      expect(subject.ask_level).to eql(intermediate) 
     end
     
     it "allows user select other options" do
