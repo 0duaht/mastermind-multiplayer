@@ -7,10 +7,14 @@ module MasterMind
   module Tobi
     class MultiPlayer < SinglePlayer
       attr_reader :hide_guess
+      attr_reader :current_index
+      attr_reader :time_hash
       
       def initialize(sequence, game_logic, hide_guess)
         super(sequence, game_logic)
         @hide_guess = hide_guess  
+        @current_index = 0
+        @time_hash = {}
       end
       
       def start_game
@@ -22,7 +26,8 @@ module MasterMind
         guesses_hash = {}
         (1..number).each {|x| 
           history_hash[x] = []
-          guesses_hash[x] = 0 
+          guesses_hash[x] = 0
+          time_hash[x] = 0 
         }
         
         multi_start_game(number, history_hash, guesses_hash)    
@@ -34,7 +39,10 @@ module MasterMind
           while total_guesses < (UI::GUESS_MAX * number)        # until all players have exhausted their guesses
             for index in (1..number)                                # loop through to allow each player have a guess
               total_guesses += 1
+              @start_time = Time.now
+              @current_index = index
               multi_helper(guesses_hash, index, history_hash)
+              time_hash[index] += (Time.now - @start_time)
             end
           end
         end
@@ -71,6 +79,15 @@ module MasterMind
       
       def check_help(input, guesses_hash, history_hash, index)
         treat_guess(input, guesses_hash[index], history_hash[index])  # player enters a guess
+      end
+      
+      def right_guess(start_time, sequence, guesses)
+        time_elapsed = time_hash[current_index].to_i + (Time.now - start_time).to_i                                       # time used by user in seconds
+        current_player = store_game(sequence, guesses, time_elapsed)                      # store user data to top-scores file
+        
+        puts UI::CONGRATS_MESSAGE % [current_player.name, sequence.join.upcase, guesses, guesses > 1 ? "guesses" : "guess", 
+          time_convert(time_elapsed) << '.']
+        print_top_ten(current_player)
       end
       
       def wrong_guess(sequence, guesses, input, history)

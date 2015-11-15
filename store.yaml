@@ -1091,3 +1091,40 @@ sequence:
 - g
 time: 0
 guesses: 5
+--- !ruby/object:MasterMind::Tobi::Player
+name: James
+sequence:
+- r
+- g
+- b
+- y
+- g
+time: 0
+guesses: 5
+--- !ruby/object:MasterMind::Tobi::Player
+name: Dtu
+sequence:
+- y
+- b
+- y
+- b
+time: 1
+guesses: 1
+--- !ruby/object:MasterMind::Tobi::Player
+name: Yui
+sequence:
+- g
+- b
+- b
+- b
+time: 6.912243
+guesses: 2
+--- !ruby/object:MasterMind::Tobi::Player
+name: Yutr
+sequence:
+- b
+- b
+- y
+- b
+time: 3
+guesses: 2
