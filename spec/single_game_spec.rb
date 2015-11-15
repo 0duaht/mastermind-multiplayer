@@ -9,6 +9,8 @@ describe "Single Player" do
   end
   let(:end_guess) {13}
   let(:max_guess) {12}
+  let(:game_play) {[MasterMind::Tobi::GamePlay.new('srrt', 2, 1), MasterMind::Tobi::GamePlay.new('grrb', 3, 2)]}
+  
   describe "instances" do
     context "instances respond to history, sequence, start_time, and gmae_logic properties" do
       it {expect(subject).to respond_to(:history)}
@@ -38,6 +40,7 @@ describe "Single Player" do
     context "able to detect when input value is a game option" do
       it "detects when user tries a valid option" do
         expect(subject.treat_option?('h', [])).to eql(true)
+        expect(subject.treat_option?('h', game_play)).to eql(true)
         expect(subject.treat_option?('cheat', [])).to eql(true)
       end
       
@@ -82,6 +85,8 @@ describe "Single Player" do
     it "stores when user agress to store" do
       allow(subject).to receive(:gets).and_return("yes")
       expect(subject.user_permits_store?).to eql(true)
+      allow(subject).to receive(:gets).and_return("no")
+      expect(subject.user_permits_store?).to eql(false)
     end
   end
 end
