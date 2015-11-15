@@ -1,7 +1,7 @@
 require 'spec_helper'
 describe "Multi Player" do
   before do
-    #allow($stdout).to receive(:write)
+    allow($stdout).to receive(:write)
   end
   let(:num_of_players) {2}
   let(:max_guess) {12 * num_of_players}
