@@ -51,8 +51,6 @@ describe "Multi Player" do
           response = 'had'
         elsif @counter == 2
           response = 'h'
-        elsif @counter < 4
-          response = 'JJJJJ'
         else
           response = 'RGBYG'
         end
