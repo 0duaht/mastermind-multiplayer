@@ -7,7 +7,8 @@ describe "Single Player" do
   subject do
     MasterMind::Tobi::SinglePlayer.new(['r', 'g', 'b', 'y', 'g'], MasterMind::Tobi::GameLogic.new(1))
   end
-  
+  let(:end_guess) {13}
+  let(:max_guess) {12}
   describe "instances" do
     context "instances respond to history, sequence, start_time, and gmae_logic properties" do
       it {expect(subject).to respond_to(:history)}
@@ -51,7 +52,6 @@ describe "Single Player" do
   end
   
   describe "SinglePlayer#treat_guess" do
-    let(:end_guess) {13}
     it "confirms when user guess is right" do
       allow(subject).to receive(:gets).and_return('James')
       allow(subject).to receive(:user_permits_store?).and_return(true)
@@ -67,6 +67,14 @@ describe "Single Player" do
     it "process input correctly" do
       allow(subject).to receive(:gets).and_return('rgbvb')
       expect(subject.process_input(7, [])).to eql(8)
+    end
+  end
+  
+  describe "SinglePlayer#start_game" do
+    it "gives user twelve trials to guess right number" do
+      allow(subject).to receive(:gets).and_return(subject.sequence.join+'\n')
+      allow(subject).to receive(:gets).and_return('JJJJJ')
+      expect(subject.start_game).to eql(max_guess)
     end
   end
 end

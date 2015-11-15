@@ -37,7 +37,8 @@ module MasterMind
         while guesses < UI::GUESS_MAX
           guesses = process_input(guesses, history)
         end
-        puts UI::SORRY_SINGLE_MESSAGE % sequence.join.upcase if guesses == UI::GUESS_MAX   
+        puts UI::SORRY_SINGLE_MESSAGE % sequence.join.upcase if guesses == UI::GUESS_MAX
+        guesses   
       end
       
       def process_input(guesses, history)
