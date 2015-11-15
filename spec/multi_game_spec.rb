@@ -23,6 +23,8 @@ describe "Multi Player" do
         @counter ||= 0
         response = ''
         if @counter == 0
+          response = 'two'
+        elsif @counter == 1
           response = num_of_players.to_s
         elsif @counter == 1
           response = 'had'
