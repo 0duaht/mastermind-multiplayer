@@ -19,8 +19,14 @@ describe "GameHelper" do
     end
     
     it "processes user's level correctly" do
+      allow(subject).to receive(:gets).and_return('b')
+      expect(subject.ask_level).to eql(beginner)
+      
       allow(subject).to receive(:gets).and_return('i')
-      expect(subject.ask_level).to eql(intermediate) 
+      expect(subject.ask_level).to eql(intermediate)
+      
+      allow(subject).to receive(:gets).and_return('a')
+      expect(subject.ask_level).to eql(advanced) 
     end
     
     it "allows user select other options" do
@@ -35,10 +41,12 @@ describe "GameHelper" do
         elsif @counter == 2
           response = 'p'
         elsif @counter == 3
-          response = 'b'
+          response = 'g'   
         elsif @counter == 4
-          response = 's'
+          response = 'b'
         elsif @counter == 5
+          response = 's'
+        elsif @counter == 6
           response = 'q'
         end
         @counter += 1
