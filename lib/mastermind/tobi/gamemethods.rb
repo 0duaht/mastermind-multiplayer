@@ -2,7 +2,7 @@ require 'ui'
 require 'gamehelper'
 module MasterMind
   module Tobi
-    module GameMethods
+    class GameMethods
       
       def average_string(top_ten_list, current_player)                                    # generates user's performance compared to average
         time_diff, guess_diff = difference(top_ten_list, current_player)
