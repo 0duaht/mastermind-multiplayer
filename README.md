@@ -3,7 +3,7 @@
 
 [![Code Climate](https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/gpa.svg)](https://codeclimate.com/repos/564635d51787d724da000013/feed)
 
-[![Test Coverage](https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/coverage.svg)](https://codeclimate.com/repos/564635d51787d724da000013/coverage)
+<a href="https://codeclimate.com/repos/564635d51787d724da000013/coverage"><img src="https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/coverage.svg" /></a>
 
 An implementation of the classic MasterMind game in Ruby.
 See http://https://en.wikipedia.org/wiki/Mastermind for details.
