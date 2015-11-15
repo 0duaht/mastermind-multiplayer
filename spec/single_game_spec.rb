@@ -58,8 +58,14 @@ describe "Single Player" do
     end
     
     it "confirms when user guess is wrong" do
-      allow(subject).to receive(:_guess).and_return(nil)
       expect(subject.treat_guess('rgby', 5, [])).to eql(6)
+    end
+  end
+  
+  describe "SinglePlayer#process_input" do
+    it "process input correctly" do
+      allow(subject).to receive(:gets).and_return('rgbvb')
+      expect(subject.process_input(7, [])).to eql(8)
     end
   end
 end
