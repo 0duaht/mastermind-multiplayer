@@ -1,6 +1,9 @@
 # Mastermind
+[![Build Status](https://semaphoreci.com/api/v1/projects/ef8e6334-3304-466e-99f5-b97fd2d3fc7c/603618/badge.svg)](https://semaphoreci.com/tobi-oduah/tobi-mastermind-2)
 
-<a href="https://codeclimate.com/repos/564635d51787d724da000013/feed"><img src="https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/gpa.svg" /></a>
+[![Code Climate](https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/gpa.svg)](https://codeclimate.com/repos/564635d51787d724da000013/feed)
+
+[![Test Coverage](https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/coverage.svg)](https://codeclimate.com/repos/564635d51787d724da000013/coverage)
 
 An implementation of the classic MasterMind game in Ruby.
 See http://https://en.wikipedia.org/wiki/Mastermind for details.
