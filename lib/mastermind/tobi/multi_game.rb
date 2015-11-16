@@ -24,11 +24,11 @@ module MasterMind
         puts UI::GENERATE_MESSAGE % [game_logic.sequence_type, game_logic.length, UI::COLOR_STRINGS[game_logic.level]]
         history_hash = {}
         guesses_hash = {}
-        (1..number).each {|x| 
+        (1..number).each do |x| 
           history_hash[x] = []
           guesses_hash[x] = 0
           time_hash[x] = 0 
-        }
+        end
         
         multi_start_game(number, history_hash, guesses_hash)    
       end  

@@ -10,7 +10,10 @@ module MasterMind
       include TimeHelper
       
       def initialize(name, sequence, time, guesses)
-        @name = name; @sequence = sequence; @time = time; @guesses = guesses
+        @name = name
+        @sequence = sequence 
+        @time = time
+        @guesses = guesses
       end
       
       def to_s

@@ -31,7 +31,8 @@ module MasterMind
       end
       
       def play_game
-        game_logic = GameLogic.new(ask_level); sequence = game_logic.generate_sequence
+        game_logic = GameLogic.new(ask_level) 
+        sequence = game_logic.generate_sequence
         ask_mode(sequence, game_logic)
         puts ""
         print UI::OPTIONS_MESSAGE + UI::INPUT_PROMPT
