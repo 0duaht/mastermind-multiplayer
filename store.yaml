@@ -1333,3 +1333,12 @@ sequence:
 - g
 time: 5
 guesses: 2
+--- !ruby/object:MasterMind::Tobi::Player
+name: Uoe
+sequence:
+- y
+- b
+- g
+- y
+time: 7
+guesses: 3
