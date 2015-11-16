@@ -34,7 +34,7 @@ module MasterMind
         if !top_ten_list.nil?
           puts ""
           puts UI::TOP_TEN                                                                  
-          top_ten_list.each_with_index{ |player, index| puts "#{index+1}. " + player.to_s }
+          top_ten_list.each_with_index { |player, index| puts "#{index+1}. " + player.to_s }
         end
       end
       
@@ -51,7 +51,7 @@ module MasterMind
         current_player = Player.new(name, sequence, time, guesses)  # create new player object
         
         # write player object to file if file does not exist, or verify whether to add record from user, and write if it exists
-        File.open(UI::DB_STORE, 'a'){ |file| file.write(YAML.dump(current_player)) } if user_permits_store?
+        File.open(UI::DB_STORE, 'a') { |file| file.write(YAML.dump(current_player)) } if user_permits_store?
          
         current_player
       end
