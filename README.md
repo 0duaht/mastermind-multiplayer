@@ -63,8 +63,3 @@ To install this gem onto your local machine, run bundle exec rake install. To re
         $ git push origin new_feature
     
 6. Then, create a new Pull Request
-
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
