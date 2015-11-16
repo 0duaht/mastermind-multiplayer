@@ -46,23 +46,23 @@ To install this gem onto your local machine, run bundle exec rake install. To re
 
 ## Contributing
 
-Fork it by visiting - https://github.com/andela-toduah/tobi-mastermind/fork
+1. Fork it by visiting - https://github.com/andela-toduah/tobi-mastermind/fork
 
-Create your feature branch 
+2. Create your feature branch
 
-    $ git checkout -b new_feature
+        $ git checkout -b new_feature
     
-Contribute to code
+3. Contribute to code
 
-Commit changes made
+4. Commit changes made
 
-    $ git commit -a -m 'descriptive_message_about_change'
+        $ git commit -a -m 'descriptive_message_about_change'
     
-Push to branch created
+5. Push to branch created
 
-    $ git push origin new_feature
+        $ git push origin new_feature
     
-Then, create a new Pull Request
+6. Then, create a new Pull Request
 
 
 ## License
