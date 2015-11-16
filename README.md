@@ -1,9 +1,7 @@
 # Mastermind
 [![Build Status](https://semaphoreci.com/api/v1/projects/ef8e6334-3304-466e-99f5-b97fd2d3fc7c/603618/badge.svg)](https://semaphoreci.com/tobi-oduah/tobi-mastermind-2)
-
 [![Code Climate](https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/gpa.svg)](https://codeclimate.com/repos/564635d51787d724da000013/feed)
-
-[![Test Coverage](https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/coverage.svg)](https://codeclimate.com/repos/564635d51787d724da000013/coverage)
+<a href="https://codeclimate.com/repos/564635d51787d724da000013/coverage"><img src="https://codeclimate.com/repos/564635d51787d724da000013/badges/ff2bde449c8b59444530/coverage.svg" /></a>
 
 An implementation of the classic MasterMind game in Ruby.
 See http://https://en.wikipedia.org/wiki/Mastermind for details.
@@ -43,11 +41,23 @@ After checking out the repo, run mastermind for an interactive prompt that will 
 
 To install this gem onto your local machine, run bundle exec rake install. To release a new version, update the version number in the GemSpec file, and then run bundle exec rake release to create a git tag for the version, push git commits and tags, and push the .gem file to rubygems.org.
 
+
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/andela-toduah/tobi-mastermind. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+1. Fork it by visiting - https://github.com/andela-toduah/tobi-mastermind/fork
 
+2. Create your feature branch
 
-## License
+        $ git checkout -b new_feature
+    
+3. Contribute to code
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+4. Commit changes made
+
+        $ git commit -a -m 'descriptive_message_about_change'
+    
+5. Push to branch created
+
+        $ git push origin new_feature
+    
+6. Then, create a new Pull Request
