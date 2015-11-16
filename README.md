@@ -54,15 +54,15 @@ Create your feature branch
     
 Contribute to code
 
-Commit changes made(git commit -am '')
+Commit changes made
 
     $ git commit -a -m 'descriptive_message_about_change'
     
-Push to branch created  (git push origin my-new-feature)
+Push to branch created
 
     $ git push origin new_feature
     
-Create a new Pull Request
+Then, create a new Pull Request
 
 
 ## License
