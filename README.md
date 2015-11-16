@@ -43,9 +43,26 @@ After checking out the repo, run mastermind for an interactive prompt that will 
 
 To install this gem onto your local machine, run bundle exec rake install. To release a new version, update the version number in the GemSpec file, and then run bundle exec rake release to create a git tag for the version, push git commits and tags, and push the .gem file to rubygems.org.
 
+
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/andela-toduah/tobi-mastermind. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Fork it by visiting - https://github.com/andela-toduah/tobi-mastermind/fork
+
+Create your feature branch 
+
+    $ git checkout -b new_feature
+    
+Contribute to code
+
+Commit changes made(git commit -am '')
+
+    $ git commit -a -m 'descriptive_message_about_change'
+    
+Push to branch created  (git push origin my-new-feature)
+
+    $ git push origin new_feature
+    
+Create a new Pull Request
 
 
 ## License
